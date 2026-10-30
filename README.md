@@ -23,6 +23,10 @@ Set these in Cloudflare → Workers → **tili-store** → Settings → Variable
 
 Then open `/#admin`. Change either secret any time to change the login.
 
+## Bestsellers
+
+Admin → Settings: pick up to 4 products for the Bestsellers row and tag (stored in D1, `settings` table).
+
 ## Prices and stock
 
 Change prices or switch products out of stock from Admin → Products. Overrides are stored in D1 (`catalog` table)

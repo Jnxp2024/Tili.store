@@ -145,12 +145,29 @@ async function adminCatalog(request, env) {
   return json({ ok: true });
 }
 
+// Store settings. Bestsellers: up to 4 product ids shown first on the home page.
+async function adminSettings(request, env) {
+  const b = await body(request);
+  if (b.best !== undefined) {
+    const { byId } = await catalog(request, env);
+    const best = [...new Set(Array.isArray(b.best) ? b.best.map(String) : [])].filter(id => byId[id]);
+    if (best.length > 4) return bad("Pick up to 4 bestsellers.");
+    await env.DB.prepare("INSERT INTO settings (key, value, updated_at) VALUES ('best', ?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at").bind(JSON.stringify(best), Date.now()).run();
+  }
+  return json({ ok: true });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url), path = url.pathname, m = request.method;
     if (path.startsWith("/api/")) {
       try {
-        if (m === "GET" && path === "/api/catalog") { const { ovr } = await catalog(request, env); const p = {}; Object.values(ovr).forEach(o => { p[o.id] = {}; if (o.price > 0) p[o.id].price = o.price; if (o.off) p[o.id].off = true; }); return json({ ok: true, p }); }
+        if (m === "GET" && path === "/api/catalog") {
+          const { ovr } = await catalog(request, env); const p = {};
+          Object.values(ovr).forEach(o => { p[o.id] = {}; if (o.price > 0) p[o.id].price = o.price; if (o.off) p[o.id].off = true; });
+          const s = await env.DB.prepare("SELECT value FROM settings WHERE key = 'best'").first();
+          return json({ ok: true, p, best: s ? JSON.parse(s.value) : null });
+        }
         if (m === "POST" && path === "/api/auth/check") return await authCheck(request, env);
         if (m === "POST" && path === "/api/auth/register") return await authRegister(request, env);
         if (m === "POST" && path === "/api/auth/login") return await authLogin(request, env);
@@ -164,6 +181,7 @@ export default {
           if (m === "GET" && path === "/api/admin/orders") return await adminOrders(request, env);
           if (m === "POST" && path === "/api/admin/order") return await adminOrder(request, env);
           if (m === "PUT" && path === "/api/admin/catalog") return await adminCatalog(request, env);
+          if (m === "PUT" && path === "/api/admin/settings") return await adminSettings(request, env);
         }
         return bad("Not found.", 404);
       } catch (e) {
