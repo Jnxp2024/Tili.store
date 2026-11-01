@@ -10,13 +10,13 @@
 <title>Tili Store</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
 <style>
 /* Layout: marketplace shell — black header + category bar, routed pages (home, listing w/ filter rail, product, bag, checkout, account), black footer. Monochrome with one gold accent. */
 :root{
   --bg:#FFFFFF; --bg2:#F5F5F4; --card:#FFFFFF; --ink:#0A0A0A; --ink2:#525252; --ink3:#8A8A8A; --line:#E7E5E4;
   --btn:#0A0A0A; --btn-ink:#FFFFFF; --accent:#B8913F; --ok:#15803D; --err:#B91C1C; --hdr:#0A0A0A; --hdr-ink:#FFFFFF; --hdr2:#1C1C1C;
-  --f:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif; --f-serif:"Instrument Serif",Georgia,serif;
+  --f:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:14px; --shadow:0 1px 2px rgba(0,0,0,.05),0 10px 28px -14px rgba(0,0,0,.22);
   --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
 }
@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
 .wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
-.serif{font-family:var(--f-serif);font-weight:400;font-style:italic;letter-spacing:0}
+.serif{font:inherit;font-style:normal;letter-spacing:inherit}
 .muted{color:var(--ink2)} .small{font-size:12.5px} .ok{color:var(--ok);font-weight:600}
 .eb{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 
@@ -71,11 +71,20 @@ html{-webkit-tap-highlight-color:transparent}
 .deliver small{font-size:11px;opacity:.65}
 .deliver select{appearance:none;background:transparent;border:0;color:inherit;font:600 13.5px var(--f);padding:0;cursor:pointer}
 .deliver select option{color:#000}
-.search{flex:1;min-width:0;position:relative}
-.search form{display:flex;height:44px;border-radius:10px;overflow:hidden;background:#fff}
-.search input{flex:1;min-width:0;border:0;outline:0;padding:0 14px;font:inherit;font-size:15px;color:#0A0A0A;background:#fff}
-.search button{width:52px;background:var(--accent);color:#0A0A0A;display:grid;place-items:center}
-.sugg{position:absolute;left:0;right:0;top:50px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;z-index:50;animation:fade .25s var(--ease)}
+.search{flex:1;min-width:0;position:relative;max-width:760px}
+.search form{display:flex;align-items:center;height:46px;border-radius:999px;background:#fff;border:1.5px solid transparent;padding:0 5px 0 16px;gap:8px;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.search form:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(216,182,106,.22)}
+.search .sico{color:#78716C;flex:none;display:grid;place-items:center}
+.search input{flex:1;min-width:0;height:100%;border:0;outline:0;padding:0;font:inherit;font-size:15px;color:#0A0A0A;background:transparent;-webkit-appearance:none;appearance:none}
+.search input::placeholder{color:#A8A29E}
+.search input::-webkit-search-cancel-button{display:none}
+.search .sclr{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#78716C;background:#F5F5F4;flex:none;opacity:0;pointer-events:none;transform:scale(.8);transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.search form.has .sclr{opacity:1;pointer-events:auto;transform:none}
+.search .sclr:hover{background:#E7E5E4;color:#0A0A0A}
+.search .sgo{height:36px;padding:0 18px;border-radius:999px;background:var(--accent);color:#0A0A0A;font-weight:600;font-size:14px;flex:none;transition:filter .25s var(--ease)}
+.search .sgo:hover{filter:brightness(1.06)}
+@media (max-width:560px){.search .sgo{display:none}.search form{padding-right:9px}}
+.sugg{position:absolute;left:0;right:0;top:54px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;z-index:50;animation:fade .25s var(--ease)}
 .sugg a{display:flex;align-items:center;gap:12px;padding:8px 12px;font-size:14px}
 .sugg a:hover,.sugg a.on{background:var(--bg2)}
 .sugg img,.sugg .ni{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:8px;flex:none}
@@ -527,7 +536,7 @@ footer p{font-size:13.5px;opacity:.75;margin:8px 0 0;max-width:34ch}
     <a class="logo" href="#" aria-label="Tili Store home"><b>tili<i>.</i></b><span>store</span></a>
     <label class="deliver" for="emirate"><small>Deliver to</small><select id="emirate" aria-label="Deliver to emirate"><option>Dubai</option><option>Sharjah</option><option>Ajman</option><option>Abu Dhabi</option><option>Umm Al Quwain</option><option>Ras Al Khaimah</option><option>Fujairah</option></select></label>
     <div class="search" id="searchBox">
-      <form id="searchForm" role="search"><input id="q" type="search" placeholder="Search Dubai Chocolate, Takis, Alien's Sour…" aria-label="Search products" autocomplete="off"><button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form>
+      <form id="searchForm" role="search"><span class="sico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><input id="q" type="search" enterkeyhint="search" placeholder="Search chocolate, candy, snacks…" aria-label="Search products" autocomplete="off"><button type="button" class="sclr" id="qClr" aria-label="Clear search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><button type="submit" class="sgo">Search</button></form>
       <div class="sugg" id="sugg" hidden></div>
     </div>
     <button class="hbtn" id="themeBtn" type="button" aria-label="Switch theme"><svg id="themeIco" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
@@ -1181,7 +1190,9 @@ function suggest(){const v=$("q").value.trim(),box=$("sugg");if(v.length<2){box.
   const l=searchList(v).sort((a,b)=>(!!b.img)-(!!a.img)).slice(0,6);sIdx=-1;
   box.innerHTML=(l.length?l.map(p=>`<a href="#p-${p.id}">${p.img?`<img src="${p.img}" alt="">`:`<span class="ni"></span>`}<span style="min-width:0"><b style="font-weight:600">${esc(p.name)}</b><div class="small muted">${esc(p.brand)}${p.size?" · "+esc(p.size):""} · AED ${aed(p.price)}</div></span></a>`).join(""):`<div class="small muted" style="padding:12px">No matches for "${esc(v)}"</div>`)+(l.length?`<a class="all" href="#search" data-all>See all results</a>`:"");
   box.hidden=false}
-$("q").addEventListener("input",suggest);
+const qSync=()=>$("searchForm").classList.toggle("has",!!$("q").value);
+$("q").addEventListener("input",()=>{qSync();suggest()});
+$("qClr").addEventListener("click",()=>{$("q").value="";qSync();$("sugg").hidden=true;$("q").focus();if(Q){Q="";if(location.hash==="#search")go("shop")}});
 $("q").addEventListener("focus",suggest);
 $("q").addEventListener("keydown",e=>{const items=$$("#sugg a");if(!items.length||$("sugg").hidden)return;
   if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();sIdx=(sIdx+(e.key==="ArrowDown"?1:-1)+items.length)%items.length;items.forEach((a,i)=>a.classList.toggle("on",i===sIdx))}
