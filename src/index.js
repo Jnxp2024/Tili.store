@@ -157,11 +157,22 @@ async function adminSettings(request, env) {
   return json({ ok: true });
 }
 
+// Creates the tables on first use, so a fresh D1 database needs no manual setup.
+const SCHEMA = ["CREATE TABLE IF NOT EXISTS customers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, phone TEXT NOT NULL UNIQUE, salt TEXT NOT NULL, pw TEXT NOT NULL, created_at TEXT DEFAULT (datetime('now')));", "CREATE TABLE IF NOT EXISTS sessions (token TEXT PRIMARY KEY, customer_id INTEGER NOT NULL, created_at TEXT DEFAULT (datetime('now')));", "CREATE TABLE IF NOT EXISTS orders (no TEXT PRIMARY KEY, at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'new', customer_id INTEGER, name TEXT, phone TEXT, emirate TEXT, area TEXT, addr TEXT, note TEXT, items TEXT NOT NULL, n INTEGER, sub REAL, fee REAL, total REAL, eta TEXT, history TEXT, admin_note TEXT);", 'CREATE INDEX IF NOT EXISTS orders_phone ON orders(phone);',
+  'CREATE INDEX IF NOT EXISTS orders_at ON orders(at);',
+  'CREATE TABLE IF NOT EXISTS catalog (id TEXT PRIMARY KEY, price REAL, off INTEGER DEFAULT 0);',
+  'CREATE TABLE IF NOT EXISTS admin_sessions (token TEXT PRIMARY KEY, exp INTEGER NOT NULL);',
+  'CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at INTEGER);'
+];
+let READY = null;
+const ensure = env => READY || (READY = env.DB.batch(SCHEMA.map(q => env.DB.prepare(q))).catch(e => { READY = null; throw e; }));
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url), path = url.pathname, m = request.method;
     if (path.startsWith("/api/")) {
       try {
+        await ensure(env);
         if (m === "GET" && path === "/api/catalog") {
           const { ovr } = await catalog(request, env); const p = {};
           Object.values(ovr).forEach(o => { p[o.id] = {}; if (o.price > 0) p[o.id].price = o.price; if (o.off) p[o.id].off = true; });

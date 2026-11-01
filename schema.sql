@@ -1,4 +1,4 @@
--- D1 database "tili-store" (already created and applied)
+-- D1 database "tili-store". The worker also creates these tables automatically on first use.
 CREATE TABLE IF NOT EXISTS customers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, phone TEXT NOT NULL UNIQUE, salt TEXT NOT NULL, pw TEXT NOT NULL, created_at TEXT DEFAULT (datetime('now')));
 CREATE TABLE IF NOT EXISTS sessions (token TEXT PRIMARY KEY, customer_id INTEGER NOT NULL, created_at TEXT DEFAULT (datetime('now')));
 CREATE TABLE IF NOT EXISTS orders (no TEXT PRIMARY KEY, at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'new', customer_id INTEGER, name TEXT, phone TEXT, emirate TEXT, area TEXT, addr TEXT, note TEXT, items TEXT NOT NULL, n INTEGER, sub REAL, fee REAL, total REAL, eta TEXT, history TEXT, admin_note TEXT);
