@@ -505,8 +505,47 @@ footer p{font-size:13.5px;opacity:.75;margin:8px 0 0;max-width:34ch}
 /* overlays */
 .scrim{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
 .scrim.on{opacity:1;pointer-events:auto}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:90;transform:translate(-50%,170%);background:var(--btn);color:var(--btn-ink);padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;transition:transform .6s var(--ease);max-width:calc(100% - 32px);display:flex;gap:14px;align-items:center;box-shadow:var(--shadow)}
-.toast.on{transform:translate(-50%,0)}
+/* mobile tab bar */
+.tabbar{display:none}
+@media (max-width:760px){
+ .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 24px rgba(0,0,0,.06)}
+ .tabbar a,.tabbar button{display:grid;justify-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--ink3);padding:4px 0;position:relative;background:none}
+ .tabbar [aria-current]{color:var(--ink)}
+ .tabbar [aria-current] svg{stroke:var(--accent)}
+ .tabbar .n{position:absolute;top:0;left:calc(50% + 6px);min-width:17px;height:17px;border-radius:9px;background:var(--accent);color:#0A0A0A;font-size:10.5px;display:grid;place-items:center;padding:0 4px}
+ .tabbar .n:empty,.tabbar .n[data-z]{display:none}
+ body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+ body.bare,body.adm{padding-bottom:0}body.bare .tabbar,body.adm .tabbar,body.nobar .tabbar{display:none}
+ .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
+ body:has(.sbuy.on) .toast{bottom:calc(146px + env(safe-area-inset-bottom,0px))!important}
+}
+/* sticky buy bar */
+.sbuy{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .45s var(--ease)}
+.sbuy.on{transform:none}
+.sbuy .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
+.sbuy img{width:46px;height:46px;object-fit:contain;background:#fff;border-radius:10px;flex:none}
+.sbuy .nm{min-width:0;flex:1;display:grid}.sbuy .nm b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sbuy .nm span{font-size:13px;color:var(--ink2)}
+.sbuy .btn{height:44px;padding:0 18px}
+@media (max-width:760px){.sbuy{bottom:calc(62px + env(safe-area-inset-bottom,0px));border-radius:16px 16px 0 0}.sbuy img{display:none}.sbuy .wrap{padding-block:9px}}
+/* inline field errors */
+.f .fe{color:var(--err);font-size:12.5px;font-weight:500;display:none}
+.f.bad .fe{display:block}.f.bad .in,.f.bad select{border-color:var(--err)}
+/* show/hide password */
+.pw{position:relative;display:block}.pw .in{padding-right:64px}
+.pw button{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:12.5px;font-weight:600;color:var(--ink2);padding:6px 8px;border-radius:8px}
+.pw button:hover{background:var(--bg2);color:var(--ink)}
+/* order tracker */
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 2px}
+.track div{display:grid;gap:6px;font-size:11.5px;color:var(--ink3);font-weight:500}
+.track div i{height:5px;border-radius:3px;background:var(--line)}
+.track div.on{color:var(--ink);font-weight:600}.track div.on i{background:var(--accent)}
+/* mobile checkout bar */
+.cobar{display:none}
+@media (max-width:900px){.cobar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));gap:12px;align-items:center;box-shadow:0 -8px 30px rgba(0,0,0,.08)}
+ .cobar div{display:grid;line-height:1.2}.cobar small{font-size:12px;color:var(--ink2)}.cobar b{font-size:18px}.cobar .btn{flex:1;height:50px}
+ body.nobar{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:90;transform:translate(-50%,170%);background:var(--btn);color:var(--btn-ink);padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;transition:transform .6s var(--ease),opacity .4s var(--ease),visibility 0s linear .6s;opacity:0;visibility:hidden;max-width:calc(100% - 32px);display:flex;gap:14px;align-items:center;box-shadow:var(--shadow)}
+.toast.on{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .6s var(--ease),opacity .3s var(--ease)}
 .toast a{text-decoration:underline;font-weight:700;white-space:nowrap}
 .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .7s var(--ease),visibility .7s;padding:env(safe-area-inset-top,0px) 16px env(safe-area-inset-bottom,0px)}
 .loader.out{opacity:0;visibility:hidden}
@@ -561,12 +600,20 @@ footer p{font-size:13.5px;opacity:.75;margin:8px 0 0;max-width:34ch}
 
 <div class="scrim" id="scrim"></div>
 <div class="toast" id="toast" role="status"></div>
+<nav class="tabbar" id="tabbar" aria-label="Quick menu">
+  <a href="#" data-tab="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1Z"/></svg>Home</a>
+  <a href="#shop" data-tab="shop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Shop</a>
+  <button type="button" id="tabSearch"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</button>
+  <a href="#cart" data-tab="cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="n" id="tabN"></span>Bag</a>
+  <a href="#account" data-tab="account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Account</a>
+</nav>
 
 <script>
 const PRODUCTS=[{"id":"6297675943402","brand":"Küche","name":"Roasted Sunflower Seeds Lemon","size":"120 g","cat":"Nuts & Seeds","price":6.5,"img":"img/1WIb5Xliq_t0BDLH8UCuGts5vtC3SO_TM.webp"},{"id":"6297675943440","brand":"Küche","name":"Golden Corn Mix Salt, Chili & Cheese","size":"80 g","cat":"Chips & Snacks","price":6.5,"img":"img/1ND9QfxNu1F5T6wyWuUF23H1juLtJm47b.webp"},{"id":"6297675943464","brand":"Küche","name":"Energy Mix Nuts","size":"80 g","cat":"Nuts & Seeds","price":9.1,"img":"img/1adwirQHEy8gthU2csFMyaFrI888qzCji.webp"},{"id":"6297675943426","brand":"Küche","name":"Golden Seeds Mix Pumpkin & Squash","size":"80 g","cat":"Nuts & Seeds","price":9.1,"img":"img/1jrVv0w5dbP3ef4SirJVmcrSCXMjK_dDE.webp"},{"id":"6297675943488","brand":"Küche","name":"Japanese Rice Crackers","size":"70 g","cat":"Chips & Snacks","price":6.5,"img":"img/1n-duAUHSvKvuvorNlsXs69sft2zDlAqK.webp"},{"id":"6297675943501","brand":"Küche","name":"Golden Shell Peanuts Salted","size":"70 g","cat":"Nuts & Seeds","price":6.5,"img":"img/1_TAVG6bSKNHbOgaHs7TJjJ9Tj6HFCRRS.webp"},{"id":"6297675943389","brand":"Küche","name":"Golden Peanut Mix BBQ, Plain & Coated","size":"80 g","cat":"Nuts & Seeds","price":6.5,"img":"img/1Jtdgxkh6X0xMTH_KS3lOia7ARnZMp-FP.webp"},{"id":"850079217003","brand":"Koch","name":"Stripy Sunflower Seeds with Tajín","size":"35 g","cat":"Nuts & Seeds","price":3.9,"img":"img/1yBejHv9nz24qSdyXI47Du96Is3dZ184K.webp"},{"id":"850079217027","brand":"Koch","name":"Stripy Sunflower Seeds with Tajín","size":"100 g","cat":"Nuts & Seeds","price":10.15,"img":"img/1yBejHv9nz24qSdyXI47Du96Is3dZ184K.webp"},{"id":"10850079217000","brand":"Koch","name":"Stripy Sunflower Seeds with Tajín","size":"12 × 35 g","cat":"Nuts & Seeds","price":46.8,"img":"img/1yBejHv9nz24qSdyXI47Du96Is3dZ184K.webp"},{"id":"850079217034","brand":"Koch","name":"Sunflower Kernels with Tajín","size":"55 g","cat":"Nuts & Seeds","price":5.35,"img":"img/1ANXBO7AzLKxdf40jNA1rJL2u-FBxF5t0.webp"},{"id":"850079217041","brand":"Koch","name":"Sunflower Kernels with Tajín","size":"125 g","cat":"Nuts & Seeds","price":11.7,"img":"img/1ANXBO7AzLKxdf40jNA1rJL2u-FBxF5t0.webp"},{"id":"10850079217031","brand":"Koch","name":"Sunflower Kernels with Tajín","size":"12 × 55 g","cat":"Nuts & Seeds","price":64.0,"img":"img/1ANXBO7AzLKxdf40jNA1rJL2u-FBxF5t0.webp"},{"id":"850079217058","brand":"Koch","name":"Redskin Peanuts with Tajín","size":"55 g","cat":"Nuts & Seeds","price":6.25,"img":"img/1isC5srtqqIgJu7jyVYWiN5tSlkOq50c0.webp"},{"id":"850079217065","brand":"Koch","name":"Redskin Peanuts with Tajín","size":"125 g","cat":"Nuts & Seeds","price":13.3,"img":"img/1isC5srtqqIgJu7jyVYWiN5tSlkOq50c0.webp"},{"id":"10850079217055","brand":"Koch","name":"Redskin Peanuts with Tajín","size":"12 × 55 g","cat":"Nuts & Seeds","price":74.9,"img":"img/1isC5srtqqIgJu7jyVYWiN5tSlkOq50c0.webp"},{"id":"757528050573","brand":"Takis","name":"Blue Heat","size":"56 g","cat":"Chips & Snacks","price":10.55,"img":"img/1HZy2VmDy_2UUuo8Bl6L8fE93mtxANnW-.webp"},{"id":"757528050177","brand":"Takis","name":"Waves Blue Heat","size":"70 g","cat":"Chips & Snacks","price":14.3,"img":"img/1l7JrTabfqiOFciZxLQLKYxQjkODZy_fP.webp"},{"id":"6224000045562","brand":"Flaminco","name":"Corn Puffs Mexican Blazin’ Hot","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/14HBURzYycb50FyDKnAzRIPxjNEKmSMmP.webp"},{"id":"6224000045579","brand":"Flaminco","name":"Corn Puffs Chili & Lemon","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/1YMq03zDak4M-HEJQFGOLk8R_rdgwvvb-.webp"},{"id":"6224000045555","brand":"Flaminco","name":"Corn Puffs Smoked Cheese","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/1hFF6DF6NRz1X4_abR54gG1-1pYDOeAsB.webp"},{"id":"6224000045067","brand":"Flaminco","name":"Corn Puffs Sweet Chili","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/1c6PCYE8VSzpCNmrYaeIT6YbwTJgUSGHE.webp"},{"id":"6224000045074","brand":"Flaminco","name":"Corn Puffs Zesty Tomato","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/1sT3jPxgxIgZgJVevpGJwHi4JjElilUzz.webp"},{"id":"6224000045050","brand":"Flaminco","name":"Corn Puffs Seasoned Cheese","size":"50 g","cat":"Chips & Snacks","price":6.5,"img":"img/1miyY77DPWi8QW5KVBPU9BkzfGQf7IW60.webp"},{"id":"6296536403048","brand":"Küche","name":"Roasted Sunflower Seeds Salted","size":"125 g","cat":"Nuts & Seeds","price":6.5,"img":"img/16lqtsie5PimZBmGquOY6GZ5pRC_Rjq6l.webp"},{"id":"6296536403055","brand":"Küche","name":"Roasted Sunflower Seeds Salted","size":"55 g","cat":"Nuts & Seeds","price":2.95,"img":"img/144idXf4CEa4dWYP-IIDSXsemcs5wbisA.webp"},{"id":"5425010096396","brand":"PaperMints","name":"CoolCaps Strawberry","size":"48 g","cat":"Candy","price":17.05,"img":"img/1EgZpBKnkKWmvUp-C_m6AMAdicCcVQ-A9.webp"},{"id":"6296536403086","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Dark","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1MPD6BNnppGBAwDuZbZiWEQI4QHj87AbK.webp"},{"id":"6296536403062","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Milk","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1wUy1I5ShznbIrvJ5ctJCbBKzzpu0YALq.webp"},{"id":"6297675943914","brand":"Küche","name":"Dubai Chocolate Saffron Pistachio Dark","size":"150 g","cat":"Dubai Chocolate","price":35.1,"img":"img/1ivcv00RANuRG2JF_bd85dXlSprFZ8MGY.webp"},{"id":"6297675943891","brand":"Küche","name":"Dubai Chocolate Saffron Pistachio Milk","size":"150 g","cat":"Dubai Chocolate","price":35.1,"img":"img/1FvlIW0h_Om0hyOny412M9Xnkdl3B9tFt.webp"},{"id":"6297675944010","brand":"Küche","name":"Dubai Chocolate Dates Choco Dark","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1YcaJgNMcBlSNjLA6gJUvZ5UYZxRMwCyy.webp"},{"id":"6297675944027","brand":"Küche","name":"Dubai Chocolate Dates Choco Milk","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1TL5x3vjgeNUNem05-l4STUyfCWHu5kjh.webp"},{"id":"6297675944133","brand":"Küche","name":"Dubai Chocolate Angel Hair Dark","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1R4VbVX6tqhEFrzuqxFUHgJJQxIqijhhy.webp"},{"id":"6297675944140","brand":"Küche","name":"Dubai Chocolate Angel Hair Milk","size":"150 g","cat":"Dubai Chocolate","price":33.8,"img":"img/1jyZgmGUI-b7yBtQ0AROufZbiuhTtascG.webp"},{"id":"6297675943105","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Dark","size":"200 g","cat":"Dubai Chocolate","price":52.0,"img":"img/1U_tjVmYCBu2BqaXK8EzABPyodyuCD2eY.webp"},{"id":"6296536403109","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Milk","size":"200 g","cat":"Dubai Chocolate","price":52.0,"img":"img/1mTBLD7Hh9gd7SNRUeTS5sIshtFbmw2qU.webp"},{"id":"6296536403093","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Dark","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/10wKqPQCsedIkRlXmkL6vK4yPQp8Zjion.webp"},{"id":"6296536403079","brand":"Küche","name":"Dubai Chocolate Pistachio Kunafa Milk","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/10TLmlQcl9WCDpG2qvNNeSGBwZorxsWds.webp"},{"id":"6297675943969","brand":"Küche","name":"Dubai Chocolate Saffron Pistachio Dark","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1OTmQHVaP2PrXtpCe0oY3askhnCT9KtBj.webp"},{"id":"6297675943952","brand":"Küche","name":"Dubai Chocolate Saffron Pistachio Milk","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1dQAGmMhdClmxdnkRgZ99r3CQsuJyXpfB.webp"},{"id":"6297675944072","brand":"Küche","name":"Dubai Chocolate Dates Choco Dark","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1w4YsjmmnRhMubSj84m9PJvT7hyjqG9rM.webp"},{"id":"6297675944089","brand":"Küche","name":"Dubai Chocolate Dates Choco Milk","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1CFt4mHVcgciyJVfTjk3zUwm_gZih3pK_.webp"},{"id":"6297675944195","brand":"Küche","name":"Dubai Chocolate Angel Hair Dark","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1B4XGHUExruyFM7LJpKardu0AL3GgvO3R.webp"},{"id":"6297675944201","brand":"Küche","name":"Dubai Chocolate Angel Hair Milk","size":"50 g","cat":"Dubai Chocolate","price":14.3,"img":"img/1wAK5vHzEByuI-GLyd1pHeYGTEOo7qvTm.webp"},{"id":"6297675943167","brand":"Küche","name":"Rêve Pistachio Wafer Roll","size":"80 g","cat":"Wafers & Biscuits","price":16.25,"img":"img/1m8V1IMTBJjEKK1uGD5SpbNs3FJ4iCgm1.webp"},{"id":"6297675943174","brand":"Küche","name":"Rêve Almond Wafer Roll","size":"80 g","cat":"Wafers & Biscuits","price":16.25,"img":"img/1oEhABu-2X-8zdmmqonn4BROSTeoKpvSx.webp"},{"id":"6297675943556","brand":"Küche","name":"Chocolate Dates Pistachio Kunafa Milk","size":"80 g","cat":"Dubai Chocolate","price":16.25,"img":"img/1RP1-d4Pn-zvPVV5be7hPbuAiMJGpM2yy.webp"},{"id":"6297675943570","brand":"Küche","name":"Chocolate Dates Pistachio Kunafa Dark","size":"80 g","cat":"Dubai Chocolate","price":16.25,"img":"img/1cPGUAXuVyfYmMixWj7WSmnFR_uZA6hPC.webp"},{"id":"6925374537232","brand":"Küche","name":"PandaPopz Choco Filled Biscuits","size":"40 g","cat":"Wafers & Biscuits","price":4.25,"img":"img/1TJGJQAgdgRhZOpJdGH0bxyl4CstjIqHr.webp"},{"id":"6971635579343","brand":"Alien's Sour","name":"Mini Lollipops, 35 pcs","size":"210 g","cat":"Candy","price":10.4,"img":"img/1VD-hd6CZm93f6eDvocooTSfP_T_AbtSV.webp"},{"id":"6971635578827","brand":"Alien's Sour","name":"Jelly Sticks & Liquid Candy Strawberry","size":"96 g","cat":"Candy","price":9.1,"img":"img/1gT5Ci9LioG9hbfWRjfzMCx9uoyWXUQZi.webp"},{"id":"6971635578834","brand":"Alien's Sour","name":"Jelly Sticks & Liquid Candy Blueberry","size":"96 g","cat":"Candy","price":9.1,"img":"img/1Ep-6sycIroN2YjdeGgxYmqELbV9fookG.webp"},{"id":"6971635579930","brand":"Alien's Sour","name":"Chewy Gummies & Sour Gel Strawberry","size":"55 g","cat":"Candy","price":9.1,"img":"img/1xwB5LwjpvpDm0Ww_d2E42xD5kT96QzIQ.webp"},{"id":"6971635579589","brand":"Alien's Sour","name":"Chewy Gummies & Sour Gel Blueberry","size":"55 g","cat":"Candy","price":9.1,"img":"img/1jIx_4keteITdJG6F3N-F0yRERm4zUyia.webp"},{"id":"6971635579619","brand":"Alien's Sour","name":"Tri-Blast Sour Gel","size":"60 g","cat":"Candy","price":9.1,"img":"img/14ZuMRhKqUmmG_nqutsCjkcnYPg93od-q.webp"},{"id":"6971635578995","brand":"Alien's Sour","name":"Lollipop & Popping Candy Berries","size":"21 g","cat":"Candy","price":6.5,"img":"img/1wHZfvTvkFuRMF8ft8wOrxfuMwfwsT4At.webp"},{"id":"6971635579008","brand":"Alien's Sour","name":"Lollipop & Popping Candy Mix Fruit","size":"21 g","cat":"Candy","price":6.5,"img":"img/1TkdYR7u4mnvgEg32-13-vsTad1Onh_VI.webp"},{"id":"6971635580073","brand":"Alien's Sour","name":"Gumball Dispenser","size":"40 g","cat":"Candy","price":10.55,"img":"img/1cAvfi-Ie5hNEfJUfqQHA4PF9iVJgewNf.webp"},{"id":"6971635580028","brand":"Alien's Sour","name":"Teeth Candy Strawberry","size":"15 g","cat":"Candy","price":6.1,"img":"img/1I-L4PVQhwZu5ZIiO3_If_Kn3_0K6SQ0V.webp"},{"id":"6971635580110","brand":"Alien's Sour","name":"Teeth Candy Blueberry","size":"15 g","cat":"Candy","price":6.1,"img":"img/1My53iuR8YS0lbUPk5Zg0hT9SrESxnT21.webp"},{"id":"6971635580004","brand":"Alien's Sour","name":"Gummy Pizza & Hot Dog Pops","size":"10 g","cat":"Candy","price":2.9,"img":"img/135orfFIQT_8R_dD_boeMtiEzvs01yoCB.webp"},{"id":"6971635580103","brand":"Alien's Sour","name":"Gummy Cola & Fries Pops","size":"10 g","cat":"Candy","price":2.9,"img":"img/1nPtDhX61fZqhKHHkpBS5TEg1rDTbMVh_.webp"},{"id":"6971635580776","brand":"Alien's Sour","name":"Space Gummy Strawberry","size":"100 g","cat":"Candy","price":9.1,"img":"img/1o5n-4Mwz2tkqZEzd-PXuGSl2Rv9LL6nP.webp"},{"id":"6971635580769","brand":"Alien's Sour","name":"Space Gummy Blueberry","size":"100 g","cat":"Candy","price":9.1,"img":"img/1nspr81sz_FNj1JfWY8PxHRCOsZKLqE1G.webp"},{"id":"6971635580899","brand":"Alien's Sour","name":"Gummy Rocks Strawberry","size":"65 g","cat":"Candy","price":9.1,"img":"img/1UraDwz_9HKmMiZOSU8V5i5qhBM9bJzU4.webp"},{"id":"6971635580882","brand":"Alien's Sour","name":"Gummy Rocks Blueberry","size":"65 g","cat":"Candy","price":9.1,"img":"img/1kGKg4QyilVeKWsRAR1wzR2b6WfQp0zF7.webp"},{"id":"6971635580868","brand":"Alien's Sour","name":"Straws Strawberry","size":"55 g","cat":"Candy","price":5.2,"img":"img/12JTgaRw8go6hL-oc5WW3ulDnvhdCyH3o.webp"},{"id":"6971635580875","brand":"Alien's Sour","name":"Straws Blueberry","size":"55 g","cat":"Candy","price":5.2,"img":"img/16_p9mCYmhifLsWw5sxDYocnku_4lkG3S.webp"},{"id":"8435124857186","brand":"Warheads","name":"Super Sour Bites","size":"80 g","cat":"Candy","price":10.55,"img":"img/1bxHmeJwjfJDoKCyC7u55SvjU6-2uWBxl.webp"},{"id":"8435124856363","brand":"Warheads","name":"Super Sour Gel","size":"20 g","cat":"Candy","price":8.6,"img":"img/1NHiXrhjNBGPBfPqdiKb0Q6U8zskIoL0-.webp"},{"id":"8435124856301","brand":"Warheads","name":"Twist & Shake","size":"18 g","cat":"Candy","price":8.6,"img":"img/1P5BL8KnkUSW2sMwJFrpUyjBewkNvi63g.webp"},{"id":"8435124856332","brand":"Warheads","name":"Thumb Dippers","size":"40 g","cat":"Candy","price":10.55,"img":"img/1YrG7JNuU5o3MjhDz-S8JnpLIXAQjGfwF.webp"},{"id":"8435124857216","brand":"Warheads","name":"Super Sour Tongue Splash","size":"40 g","cat":"Candy","price":10.55,"img":"img/1DWLwPWZrsHLXl8DsPYizmiO6slwTRXEH.webp"},{"id":"8435124856394","brand":"Warheads","name":"Super Sour Trio Gel","size":"51 g","cat":"Candy","price":10.55,"img":"img/1VU1sD1-Zza097iNBFu3Be0m6etEBz8AM.webp"},{"id":"8435124857711","brand":"Warheads","name":"Sour Mini Chewy Bites","size":"80 g","cat":"Candy","price":10.55,"img":"img/1cF-2ApoHATarlDRTZ2ePQN2Vpkg5-J5a.webp"},{"id":"6970642471145","brand":"Hello Kitty","name":"Wrist Band","size":"8 g","cat":"Candy","price":10.4,"img":"img/17VvIaMQyCnaatlEtCBx1A2PsL1ssTxGE.webp"},{"id":"840200004220","brand":"Hello Kitty","name":"Gumball Dispenser","size":"20 g","cat":"Candy","price":17.55,"img":"img/1mQ_8gtXWFfM3CfnO1lniv9GJKemRnwi-.webp"},{"id":"9555030107010","brand":"Hello Kitty","name":"Mega Lollipops","size":"135 g","cat":"Candy","price":24.05,"img":"img/1HL0lUxQlLxmfETi6xCu0GtWaJFcp4ocd.webp"},{"id":"6297675943518","brand":"Kitchora","name":"Hot Sauce","size":"88 ml","cat":"Sauces & Seasoning","price":1.85,"img":"img/1191q07353OkgEVRnjgIzkAcuNHGQul8H.webp"},{"id":"6297675943525","brand":"Kitchora","name":"Original Tomato Ketchup","size":"340 g","cat":"Sauces & Seasoning","price":9.1,"img":"img/1-4S2USyF6DO589ye3sfzs_nyoa-RCRMC.webp"},{"id":"6297675943532","brand":"Kitchora","name":"Hot Tomato Ketchup","size":"340 g","cat":"Sauces & Seasoning","price":9.1,"img":"img/16qXyBAqm5W2YCnNiSw2ZYqD2KllaB8l7.webp"},{"id":"6297675943549","brand":"Kitchora","name":"BBQ Sauce","size":"340 g","cat":"Sauces & Seasoning","price":9.1,"img":"img/12Oer52uLiaHcWrcATXnQG6HACv0zec5N.webp"},{"id":"8691066151625","brand":"Time","name":"Wafer Master Rolls Chocolate Cream (Tin)","size":"120 g","cat":"Wafers & Biscuits","price":15.6,"img":"img/time_8691066151625.webp"},{"id":"8691066111643","brand":"Time","name":"Wafer Master Rolls Hazelnut Cream (Tin)","size":"120 g","cat":"Wafers & Biscuits","price":15.6,"img":"img/time_8691066111643.webp"},{"id":"8691066122526","brand":"Time","name":"Wafer Master Minis Chocolate Cream","size":"120 g","cat":"Wafers & Biscuits","price":15.6,"img":"img/time_8691066122526.webp"},{"id":"8691066146027","brand":"Time","name":"Wafer Master Minis Hazelnut Cream","size":"120 g","cat":"Wafers & Biscuits","price":15.6,"img":"img/time_8691066146027.webp"},{"id":"8691066186054","brand":"Time","name":"Wafer Master Rolls Chocolate Cream","size":"65 g","cat":"Wafers & Biscuits","price":6.5,"img":"img/time_8691066186054.webp"},{"id":"8691066180052","brand":"Time","name":"Wafer Master Rolls Hazelnut Cream","size":"65 g","cat":"Wafers & Biscuits","price":6.5,"img":"img/time_8691066180052.webp"},{"id":"8691066104959","brand":"Time","name":"Wafer Master Crepe Chocolate Cream","size":"65 g","cat":"Wafers & Biscuits","price":6.5,"img":"img/time_8691066104959.webp"},{"id":"8691066104553","brand":"Time","name":"Wafer Master Crepe Hazelnut Cream","size":"65 g","cat":"Wafers & Biscuits","price":6.5,"img":"img/time_8691066104553.webp"},{"id":"8691066239538","brand":"Time","name":"Heyo Cocoa Biscuits with Vanilla Cream","size":"120 g","cat":"Wafers & Biscuits","price":11.05,"img":"img/time_8691066239538.webp"},{"id":"8691066219530","brand":"Time","name":"Hay Hay Cocoa Coated Biscuit with Cream","size":"120 g","cat":"Wafers & Biscuits","price":11.05,"img":"img/time_8691066219530.webp"}];
 let BEST=["6297675943556","6297675943570","6297675943167","6297675943174"];const MAXBEST=4;
 const setBest=l=>{const v=(l||[]).filter(id=>P(id)).slice(0,MAXBEST);if(v.length)BEST=v};
 const CATS=[["dubai-chocolate","Dubai Chocolate"],["candy","Candy"],["chips-snacks","Chips & Snacks"],["nuts-seeds","Nuts & Seeds"],["wafers-biscuits","Wafers & Biscuits"],["sauces-seasoning","Sauces & Seasoning"]];
+const eyeBtn=id=>`<button type="button" data-eye="${id}" aria-label="Show password">Show</button>`;
 const FREE_OVER=100,FEE=10,PAGE=30;
 
 const $=id=>document.getElementById(id),$$=s=>[...document.querySelectorAll(s)];
@@ -621,7 +668,7 @@ const fee=()=>{const s=sub();return s===0||s>=FREE_OVER?0:FEE};
 const totals=()=>{const s=sub(),f=fee(),n=count();return`<div class="kv"><span>Subtotal (${n} item${n===1?"":"s"})</span><b>AED ${aed(s)}</b></div><div class="kv"><span>Delivery · within one day</span><b class="${f?"":"ok"}">${f?"AED "+aed(f):"Free"}</b></div><div class="kv big"><span>Total · cash on delivery</span><span>AED ${aed(s+f)}</span></div>`};
 const shipNote=()=>{const left=FREE_OVER-sub();return`<div class="small muted">${left>0?`Add <b style="color:var(--ink)">AED ${aed(left)}</b> more for free delivery`:`<b class="ok">Free delivery unlocked</b>`}</div><div class="shipbar"><i style="width:${Math.min(100,sub()/FREE_OVER*100)}%"></i></div>`};
 function setQty(id,n){if(n<=0)delete bag[id];else bag[id]=n;LS.set("ts_bag2",bag);
-  const bn=$("bagN");bn.textContent=count();bn.classList.remove("bump");void bn.offsetWidth;bn.classList.add("bump");
+  const bn=$("bagN");bn.textContent=count();syncTab();bn.classList.remove("bump");void bn.offsetWidth;bn.classList.add("bump");
   $$("[data-act]").forEach(el=>el.innerHTML=act(el.dataset.act));
   const r=curRoute();if(r==="cart")renderCart(false);if(r==="checkout"){count()?mountCheckoutSummary():go("cart")}
   if(r.startsWith("p-"))updInBag()}
@@ -629,6 +676,9 @@ function toast(msg,link){const t=$("toast");t.innerHTML=`<span>${msg}</span>${li
 
 /* ---------- router ---------- */
 const curRoute=()=>decodeURIComponent(location.hash.slice(1));
+function syncTab(){const n=count(),t=$("tabN");if(t){t.textContent=n||"";n?t.removeAttribute("data-z"):t.setAttribute("data-z","")}
+  const h=curRoute(),k=!h||h==="home"?"home":h==="cart"?"cart":h==="account"||h==="done"?"account":/^(shop|search|c-|b-|p-)/.test(h)?"shop":"";
+  $$("#tabbar [data-tab]").forEach(a=>a.toggleAttribute("aria-current",a.dataset.tab===k))}
 function go(h){if(curRoute()===h)route();else location.hash=h}
 let lastKey=null;
 function route(quiet){quiet=quiet===true;
@@ -654,14 +704,15 @@ function route(quiet){quiet=quiet===true;
     app.classList.remove("enter");app.innerHTML=pg.html;
     if(lastKey!==h){window.scrollTo({top:0,behavior:"instant"});lastKey=h}
     app.classList.remove("leave");if(!quiet){void app.offsetWidth;app.classList.add("enter")}
-    document.body.classList.toggle("bare",!!pg.bare);
+    document.body.classList.toggle("bare",!!pg.bare);document.body.classList.toggle("adm",/^(admin$|admin-|ao-)/.test(h));document.body.classList.toggle("nobar",h==="checkout");
+    const sb=$("sbuy");if(sb&&!h.startsWith("p-"))sb.remove();if(SBOBS){SBOBS.disconnect();SBOBS=null}syncTab();
     document.title=(pg.title?pg.title+" · ":"")+"Tili Store";
     $$("#catNav a").forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+h));
     $$(".adm-nav a").forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+h||(h.startsWith("ao-")&&a.getAttribute("href")==="#admin-orders")));
     if(pg.mount)pg.mount()};
   if(first||still||quiet)swap();else{app.classList.remove("enter");app.classList.add("leave");setTimeout(swap,240)}
 }
-let routeTok=0,CURPG=null;
+let routeTok=0,CURPG=null,SBOBS=null;
 
 function navBuild(){
   $("catNav").innerHTML=`<a href="#shop">All</a>`+CATS.map(([s,n])=>`<a href="#c-${s}">${esc(n)}</a>`).join("")+`<span class="pill">${I.truck}Delivered within one day · Cash on delivery</span>`;
@@ -686,6 +737,8 @@ function Home(){
     </div>
   </div>
   ${trustStrip}
+  ${(()=>{const ids=[];myOrders().forEach(o=>o.items.forEach(i=>{if(!ids.includes(i.id))ids.push(i.id)}));const l=ids.map(P).filter(p=>p&&!p.off).slice(0,10);return l.length?rail("Buy again",l,"#account"):""})()}
+  ${(()=>{const l=LS.get("ts_seen",[]).map(P).filter(p=>p&&!p.off).slice(0,10);return l.length>1?rail("Recently viewed",l):""})()}
   ${rail("Bestsellers",BEST.map(P).filter(p=>p&&!p.off))}
   ${rail("Küche Dubai Chocolate",live().filter(p=>p.dubai&&p.size==="150 g"),"#c-dubai-chocolate")}
   <section class="sec"><div class="sec-h"><h2>Shop by brand</h2></div><div class="circles">${BRANDS.filter(b=>live().some(p=>p.brand===b&&p.img)).map((b,i)=>{const p=live().find(x=>x.brand===b&&x.img);return`<a class="circ" style="--i:${i}" href="#b-${slug(b)}"><span class="o">${art(p)}</span>${esc(b)}</a>`}).join("")}</div></section>
@@ -778,6 +831,13 @@ function Product(p){
     $("qDec").onclick=()=>{q=Math.max(1,q-1);upd()};$("qInc").onclick=()=>{q=Math.min(99,q+1);upd()};
     $("addBtn").onclick=()=>{setQty(p.id,(bag[p.id]||0)+q);toast(`Added ${q} × ${esc(p.name)}`,`<a href="#cart">View bag</a>`);q=1;upd()};
     $("buyBtn").onclick=()=>{setQty(p.id,(bag[p.id]||0)+q);go("checkout")};
+    const seen=LS.get("ts_seen",[]).filter(x=>x!==p.id);seen.unshift(p.id);LS.set("ts_seen",seen.slice(0,12));
+    let sb=$("sbuy");if(sb)sb.remove();sb=document.createElement("div");sb.className="sbuy";sb.id="sbuy";
+    sb.innerHTML=`<div class="wrap">${p.img?`<img src="${p.img}" alt="">`:""}<div class="nm"><b>${esc(p.name)}</b><span>AED ${aed(p.price)}${p.size?" · "+esc(p.size):""}</span></div><button class="btn" type="button" id="sbAdd">Add to bag</button><button class="btn gold" type="button" id="sbBuy">Buy now</button></div>`;
+    document.body.appendChild(sb);
+    $("sbAdd").onclick=()=>{setQty(p.id,(bag[p.id]||0)+1);toast(`Added ${esc(p.name)}`,`<a href="#cart">View bag</a>`)};$("sbBuy").onclick=()=>{if(!bag[p.id])setQty(p.id,1);go("checkout")};
+    if(p.off){$("sbAdd").disabled=true;$("sbBuy").disabled=true}
+    SBOBS=new IntersectionObserver(([e])=>sb.classList.toggle("on",!e.isIntersecting&&e.boundingClientRect.top<0));SBOBS.observe(document.querySelector(".buybox"));
     const g=$("gal");g.onmousemove=e=>{const r=g.getBoundingClientRect();const im=g.querySelector(".pimg");if(im)im.style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
     updInBag()}};
 }
@@ -805,11 +865,11 @@ function Checkout(){
   <form class="co" id="coForm" novalidate>
     <div style="display:grid;gap:16px">
       <div class="blk"><h3><span class="num">1</span>Delivery address</h3>
-        <div class="two"><label class="f" for="cName">Full name<input class="in" id="cName" autocomplete="name"></label>
+        <div class="two"><label class="f" for="cName">Full name<input class="in" id="cName" autocomplete="name" autocapitalize="words" spellcheck="false"><span class="fe">Add your name so the driver knows who to ask for.</span></label>
           <div class="f"><label for="cPhone">Mobile number</label><div class="ph-f locked"><span>+971</span><input id="cPhone" readonly></div></div></div>
         <div class="two"><label class="f" for="cEmirate">Emirate<select id="cEmirate"><option>Dubai</option><option>Sharjah</option><option>Ajman</option><option>Abu Dhabi</option><option>Umm Al Quwain</option><option>Ras Al Khaimah</option><option>Fujairah</option></select></label>
-          <label class="f" for="cArea">Area<input class="in" id="cArea" placeholder="e.g. Al Barsha 1"></label></div>
-        <label class="f" for="cAddr">Building, flat or villa<input class="in" id="cAddr" autocomplete="street-address" placeholder="Building name, flat number"></label>
+          <label class="f" for="cArea">Area<input class="in" id="cArea" placeholder="e.g. Al Barsha 1" autocomplete="address-level3" autocapitalize="words" spellcheck="false"><span class="fe">Add your area, like Al Nahda or Al Barsha 1.</span></label></div>
+        <label class="f" for="cAddr">Building, flat or villa<input class="in" id="cAddr" autocomplete="street-address" placeholder="Building name, flat number" spellcheck="false"><span class="fe">Add your building and flat, or villa number.</span></label>
         <label class="f" for="cNote">Note for driver (optional)<textarea id="cNote" placeholder="Landmark, gate code, best time to call"></textarea></label>
         <div class="eta-box">${truckBig}<div><b>Delivered within one day</b><div class="small muted">Arrives by ${tomorrow()} at the latest</div></div></div></div>
       <div class="blk"><h3><span class="num">2</span>Payment</h3>
@@ -819,15 +879,19 @@ function Checkout(){
     <aside class="blk sumbox" style="padding:22px"><h3>Order summary</h3><div id="coItems"></div><div id="coTotals" style="display:grid;gap:8px"></div>
       <p class="err" id="coErr" aria-live="polite"></p><button class="btn gold wide" type="submit" id="placeBtn">Place order</button>
       <p class="small muted" style="margin:0;text-align:center">By placing your order you agree to Tili Star Trading's terms.</p></aside>
-  </form></div>`;
+  </form><div class="cobar"><div><small>Total · cash</small><b id="cobT"></b></div><button class="btn gold" type="submit" form="coForm" id="cobBtn">Place order</button></div></div>`;
   return{title:"Checkout",html,mount(){
     mountCheckoutSummary();
+    ["cName","cArea","cAddr"].forEach(id=>$(id).addEventListener("blur",()=>{if($(id).value.trim())$(id).parentElement.classList.remove("bad")}));
+    ["cName","cArea","cAddr"].forEach(id=>$(id).addEventListener("input",()=>$(id).parentElement.classList.remove("bad")));
     $("cPhone").value=pretty(user.phone);$("cName").value=user.name;
     const a=LS.get("ts_addr",{})[user.phone];if(a){$("cEmirate").value=a.emirate;$("cArea").value=a.area;$("cAddr").value=a.addr}else $("cEmirate").value=$("emirate").value;
     $("coForm").onsubmit=async e=>{e.preventDefault();const b=$("placeBtn");if(b.classList.contains("loading"))return;
       const name=$("cName").value.trim(),area=$("cArea").value.trim(),addr=$("cAddr").value.trim(),emirate=$("cEmirate").value;
-      const er=!name?"Add your name so the driver knows who to ask for.":!area?"Add your area.":!addr?"Add your building, flat or villa.":"";
-      if(er){$("coErr").textContent=er;return}$("coErr").textContent="";busy(b,"Placing your order");await wait(1100);
+      const miss=[["cName",name],["cArea",area],["cAddr",addr]].filter(x=>!x[1]).map(x=>x[0]);
+      ["cName","cArea","cAddr"].forEach(id=>$(id).parentElement.classList.toggle("bad",miss.includes(id)));
+      if(miss.length){$("coErr").textContent=miss.length>1?"A few details are missing. Check the fields marked in red.":"";const f=$(miss[0]);f.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(()=>f.focus({preventScroll:true}),350);return}
+      $("coErr").textContent="";busy(b,"Placing your order");$("cobBtn").classList.add("loading");await wait(1100);
       const now=Date.now();
       const order={no:"TS-"+String(now).slice(-6)+Math.floor(Math.random()*90+10),at:now,status:"new",history:[{s:"new",at:now}],
         customer:{name,phone:user.phone},address:{emirate,area,addr},note:$("cNote").value.trim(),
@@ -839,7 +903,7 @@ function Checkout(){
 }
 function mountCheckoutSummary(){if(!$("coItems"))return;
   $("coItems").innerHTML=Object.entries(bag).map(([id,q])=>{const p=P(id);return`<div class="li mini"><a class="th" href="#p-${id}">${art(p)}</a><div style="min-width:0"><div style="font-weight:600;font-size:14px">${esc(p.name)}</div><div class="small muted">${q} × AED ${aed(p.price)}</div></div><b class="small">AED ${aed(p.price*q)}</b></div>`}).join("");
-  $("coTotals").innerHTML=totals()}
+  $("coTotals").innerHTML=totals();const t="AED "+aed(sub()+fee());if($("cobT"))$("cobT").textContent=t;const pb=$("placeBtn");if(pb&&!pb.classList.contains("loading"))pb.textContent="Place order · "+t}
 function Done(){const o=LS.get("ts_last",null);return{title:"Order placed",html:`<div class="wrap page"><div class="done">
   <div class="tick"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
   <div class="eb">Order placed</div><h1 class="ptitle">Thank you, ${esc((o.customer?.name||o.name||"").split(" ")[0])}</h1>
@@ -882,12 +946,11 @@ function Account(){
       <div class="f"><label for="aPhone">Mobile number</label><div class="ph-f" id="phWrap"><span>+971</span><input id="aPhone" inputmode="tel" autocomplete="tel-national" placeholder="050 123 4567"></div>
         <button class="lnk" type="button" id="chg" hidden style="justify-self:start">Change number</button></div>
       <label class="f" for="aName" id="nameRow" hidden>Full name<input class="in" id="aName" autocomplete="name" placeholder="Sara Ahmed"></label>
-      <label class="f" for="aPw" id="pwRow" hidden>Password<input class="in" type="password" id="aPw" autocomplete="current-password" placeholder="At least 6 characters"></label>
-      <label class="f" for="aPw2" id="pw2Row" hidden>Confirm password<input class="in" type="password" id="aPw2" autocomplete="new-password"></label>
+      <label class="f" for="aPw" id="pwRow" hidden>Password<span class="pw"><input class="in" type="password" id="aPw" autocomplete="current-password" placeholder="At least 6 characters">${eyeBtn("aPw")}</span></label>
       <p class="err" id="aErr" aria-live="polite"></p><button class="btn wide" type="submit" id="aGo">Continue</button>
       <p class="muted small" id="forgot" hidden style="margin:0;text-align:center">Forgot your password? Message us on WhatsApp to reset it.</p>
     </form>
-    <div class="perks"><div>${I.check}Save your address once, check out in seconds</div><div>${I.check}Track every order and reorder in one tap</div><div>${I.check}Delivered within one day, pay cash on delivery</div></div>
+    <div class="perks"><div>${I.check}Save your address once, check out in seconds</div><div>${I.check}Track every order live and buy again in one tap</div><div>${I.check}Delivered within one day, pay cash on delivery</div></div>
     </div></div>`,mount:mountAuth}}
   const o=myOrders(),addr=LS.get("ts_addr",{})[user.phone];
   return{title:"My account",html:`<div class="wrap page">${crumbs([["My account"]])}<div class="acct">
@@ -896,23 +959,25 @@ function Account(){
     <div><h2 style="font-size:20px;margin-bottom:12px">My orders</h2><div style="display:grid;gap:12px">${o.length?o.map(x=>`<div class="order"><div class="top"><b>Order ${x.no}</b>${chip(x.status)}</div>
       <div class="small muted">${new Date(x.at).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})} · ${x.n} item${x.n>1?"s":""} · AED ${aed(x.total||0)} cash on delivery</div>
       <div class="small">${x.items.map(it=>`${it.q} × <a class="lnk" href="#p-${it.id}">${esc(it.name)}</a>`).join(" · ")}</div>
+      ${x.status!=="cancelled"?`<div class="track">${[["new","Placed"],["confirmed","Confirmed"],["out","On the way"],["delivered","Delivered"]].map(([k,l],i)=>`<div class="${["new","confirmed","out","delivered"].indexOf(x.status)>=i?"on":""}"><i></i>${l}</div>`).join("")}</div>`:""}
       ${["new","confirmed","out"].includes(x.status)?`<div class="small muted">${I.truck} Arrives by ${esc(x.eta)}</div>`:""}
       <div><button class="btn line sm" type="button" data-reorder="${x.no}">Buy again</button></div></div>`).join(""):`<div class="box muted">No orders yet. <a class="lnk" href="#shop">Start shopping</a></div>`}</div></div>
   </div></div>`,mount(){$("signOut").onclick=async()=>{await overlay("Signing you out",900);API("/api/auth/logout",{body:{}}).catch(()=>{});MINE=null;user=null;LS.set("ts_user",null);updHello();route();overlayOff();toast("Signed out")}}};
 }
 function setMode(m){MODE=m;const isNew=m==="new",isOld=m==="old",isPh=m==="phone";
   $("aPhone").readOnly=!isPh;$("phWrap").classList.toggle("locked",!isPh);$("chg").hidden=isPh;
-  $("nameRow").hidden=!isNew;$("pw2Row").hidden=!isNew;$("pwRow").hidden=isPh;$("forgot").hidden=!isOld;
+  $("nameRow").hidden=!isNew;$("pwRow").hidden=isPh;$("forgot").hidden=!isOld;
   $("aPw").autocomplete=isNew?"new-password":"current-password";
   $("eb").textContent=isNew?"New here":isOld?"Welcome back":"Sign in or create account";
   $("ah").textContent=isNew?"Create your account":isOld?"Enter your password":"Welcome to Tili";
   $("asub").textContent=isNew?"This number isn't registered yet. Add your name and choose a password.":isOld?"This number already has an account.":"Enter your mobile number. We'll check if you already have an account.";
   $("aGo").textContent=isNew?"Create account":isOld?"Sign in":"Continue";$("aErr").textContent="";
-  ["eb","ah","asub","nameRow","pwRow","pw2Row","forgot","chg"].forEach(id=>{const el=$(id);el.classList.remove("reveal");void el.offsetWidth;if(!el.hidden)el.classList.add("reveal")});
+  ["eb","ah","asub","nameRow","pwRow","forgot","chg"].forEach(id=>{const el=$(id);el.classList.remove("reveal");void el.offsetWidth;if(!el.hidden)el.classList.add("reveal")});
   setTimeout(()=>(isNew?$("aName"):isOld?$("aPw"):$("aPhone")).focus(),30)}
 function mountAuth(){
   $("aPhone").oninput=e=>{const d=e.target.value.replace(/\D/g,"").slice(0,10);e.target.value=d.length>3?(d.length>6?d.slice(0,3)+" "+d.slice(3,6)+" "+d.slice(6):d.slice(0,3)+" "+d.slice(3)):d};
-  $("chg").onclick=()=>{$("aPw").value="";$("aPw2").value="";setMode("phone")};
+  $("chg").onclick=()=>{$("aPw").value="";setMode("phone")};
+  $("aPhone").addEventListener("input",()=>{if(MODE==="phone"&&normPhone($("aPhone").value)&&$("aPhone").value.replace(/\D/g,"").length>=($("aPhone").value.trim().startsWith("0")?10:9))setTimeout(()=>{if(MODE==="phone"&&!$("aGo").classList.contains("loading"))$("authForm").requestSubmit()},350)});
   $("authForm").onsubmit=async e=>{e.preventDefault();const err=$("aErr"),btn=$("aGo");if(btn.classList.contains("loading"))return;err.textContent="";
     try{
       if(MODE==="phone"){PHONE=normPhone($("aPhone").value);if(!PHONE){err.textContent="Enter a valid UAE mobile number, like 050 123 4567.";return}
@@ -922,7 +987,6 @@ function mountAuth(){
       else{const name=$("aName").value.trim(),pw=$("aPw").value;
         if(name.length<2){err.textContent="Enter your full name.";return}
         if(pw.length<6){err.textContent="Choose a password of at least 6 characters.";return}
-        if(pw!==$("aPw2").value){err.textContent="The two passwords don't match.";return}
         busy(btn,"Creating your account");let j;try{j=await API("/api/auth/register",{body:{name,phone:PHONE,password:pw}})}catch(x){idle(btn);err.textContent=x.message;if(x.data&&x.data.exists)setMode("old");return}
         idle(btn);await signedIn({name:j.name,phone:j.phone,token:j.token},"Setting up your account")}
     }catch(x){if(btn.classList.contains("loading"))idle(btn);err.textContent="Something went wrong. Try again."}}}
@@ -967,7 +1031,7 @@ function startPoll(){clearInterval(POLL);POLL=setInterval(()=>{if(/^(admin$|admi
 function applyOvr(){PRODUCTS.forEach(p=>{const o=OVR[p.id]||{};p.price=typeof o.price==="number"&&o.price>0?o.price:p.base;p.off=!!o.off})}
 function dataChanged(kind){const r=curRoute();if(r==="admin-login")return;
   if(/^(admin$|admin-|ao-)/.test(r)){if(CURPG&&CURPG.refresh)CURPG.refresh(kind);else route(true);return}
-  if(r==="account"&&user&&kind==="orders"){route(true);return}
+  if((r==="account"||!r||r==="home")&&user&&kind==="orders"){route(true);return}
   if(kind==="catalog"){if(r==="cart")renderCart();else if(!r||r==="home"||r==="shop"||r==="search"||/^(c|b|p)-/.test(r))route(true);$$("[data-act]").forEach(el=>el.innerHTML=act(el.dataset.act))}}
 function admBadge(){if(!ALL)return;const n=ALL.filter(o=>o.status==="new").length;const c=$("admCnt");if(c){c.textContent=n;c.hidden=!n}}
 (async()=>{try{const j=await API("/api/catalog");OVR=j.p||{};setBest(j.best);applyOvr();dataChanged("catalog")}catch(_){}
@@ -1153,7 +1217,6 @@ async function saveBest(list){await API("/api/admin/settings",{method:"PUT",body
 
 /* ---------- admin login ---------- */
 let NEXTA="";
-const eyeBtn=id=>`<button type="button" data-eye="${id}" aria-label="Show password">Show</button>`;
 function AdmLogin(){
   if(LS.get("ts_atok",null)?.exp>Date.now()){setTimeout(()=>go(NEXTA&&NEXTA!=="admin-login"?NEXTA:"admin"));return{title:"Admin",bare:true,html:""}}
   const setup=false;
@@ -1194,6 +1257,7 @@ const qSync=()=>$("searchForm").classList.toggle("has",!!$("q").value);
 $("q").addEventListener("input",()=>{qSync();suggest()});
 $("qClr").addEventListener("click",()=>{$("q").value="";qSync();$("sugg").hidden=true;$("q").focus();if(Q){Q="";if(location.hash==="#search")go("shop")}});
 $("q").addEventListener("focus",suggest);
+$("tabSearch").onclick=()=>{window.scrollTo({top:0,behavior:"smooth"});setTimeout(()=>$("q").focus(),250)};
 $("q").addEventListener("keydown",e=>{const items=$$("#sugg a");if(!items.length||$("sugg").hidden)return;
   if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();sIdx=(sIdx+(e.key==="ArrowDown"?1:-1)+items.length)%items.length;items.forEach((a,i)=>a.classList.toggle("on",i===sIdx))}
   else if(e.key==="Enter"&&sIdx>=0){e.preventDefault();items[sIdx].click()}
