@@ -12,6 +12,6 @@
     "run_worker_first": ["/api/*"]
   },
   "d1_databases": [
-    { "binding": "DB", "database_name": "tili-store", "database_id": "2857c03d-b8f1-42b5-99f3-4c9fc981748b" }
+    { "binding": "DB", "database_name": "tili-store", "database_id": "2984bf3b-e4f1-43e3-9bc9-ca28e2ce271d" }
   ]
 }
