@@ -835,5 +835,392 @@
   "cat": "Wafers & Biscuits",
   "price": 11.05,
   "img": "img/time_8691066219530.webp"
+ },
+ {
+  "id": "6297675944492",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Milk Chocolate",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 10.4,
+  "img": "img/c27_6297675944492.webp"
+ },
+ {
+  "id": "6297675944508",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Dark Chocolate",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 10.4,
+  "img": "img/c27_6297675944508.webp"
+ },
+ {
+  "id": "6297675944614",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Milk Chocolate, No Added Sugar",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 10.4,
+  "img": "img/c27_6297675944614.webp"
+ },
+ {
+  "id": "6297675944638",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Dark Chocolate, No Added Sugar",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 10.4,
+  "img": "img/c27_6297675944638.webp"
+ },
+ {
+  "id": "6297675944478",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Camel Milk Chocolate",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 20.8,
+  "img": "img/c27_6297675944478.webp"
+ },
+ {
+  "id": "6297675944485",
+  "brand": "Küche",
+  "name": "Pistachio Kunafa Camel Dark Chocolate",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 20.8,
+  "img": "img/c27_6297675944485.webp"
+ },
+ {
+  "id": "6297675944652",
+  "brand": "Küche",
+  "name": "Camel Milk Chocolate, No Added Sugar",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 20.8,
+  "img": "img/c27_6297675944652.webp"
+ },
+ {
+  "id": "6297675944676",
+  "brand": "Küche",
+  "name": "Camel Dark Chocolate, No Added Sugar",
+  "size": "80 g",
+  "cat": "Dubai Chocolate",
+  "price": 20.8,
+  "img": "img/c27_6297675944676.webp"
+ },
+ {
+  "id": "6297675944515",
+  "brand": "Mioo",
+  "name": "Pistachio Kunafa Dubai Chocolate",
+  "size": "200 g",
+  "cat": "Dubai Chocolate",
+  "price": 7.8,
+  "img": "img/c27_6297675944515.webp"
+ },
+ {
+  "id": "6297675944737",
+  "brand": "Mioo",
+  "name": "Dubai Chocolate Wafer Rolls Pistachio",
+  "size": "140 g",
+  "cat": "Wafers & Biscuits",
+  "price": 7.8,
+  "img": "img/c27_6297675944737.webp"
+ },
+ {
+  "id": "6297675944713",
+  "brand": "Mioo",
+  "name": "Dubai Chocolate Wafer Rolls Almond",
+  "size": "140 g",
+  "cat": "Wafers & Biscuits",
+  "price": 7.8,
+  "img": "img/c27_6297675944713.webp"
+ },
+ {
+  "id": "6297675945352",
+  "brand": "Mioo",
+  "name": "Coffee Chocodates with Almond",
+  "size": "160 g",
+  "cat": "Dubai Chocolate",
+  "price": 7.8,
+  "img": "img/c27_6297675945352.webp"
+ },
+ {
+  "id": "6297675945345",
+  "brand": "Mioo",
+  "name": "Coconut Chocodates with Almond",
+  "size": "160 g",
+  "cat": "Dubai Chocolate",
+  "price": 7.8,
+  "img": "img/c27_6297675945345.webp"
+ },
+ {
+  "id": "6297675945321",
+  "brand": "Mioo",
+  "name": "Milk Chocodates with Almond",
+  "size": "160 g",
+  "cat": "Dubai Chocolate",
+  "price": 7.8,
+  "img": "img/c27_6297675945321.webp"
+ },
+ {
+  "id": "6297675945338",
+  "brand": "Mioo",
+  "name": "Dark Chocodates with Almond",
+  "size": "160 g",
+  "cat": "Dubai Chocolate",
+  "price": 7.8,
+  "img": "img/c27_6297675945338.webp"
+ },
+ {
+  "id": "6925374537249",
+  "brand": "Küche",
+  "name": "PandaPopz Choco Filled Biscuits",
+  "size": "40 g",
+  "cat": "Wafers & Biscuits",
+  "price": 10.4,
+  "img": "img/c27_6925374537249.webp"
+ },
+ {
+  "id": "6925374541154",
+  "brand": "Küche",
+  "name": "PandaPopz Biscuit Sticks with Chocolate Dip",
+  "size": "40 g",
+  "cat": "Wafers & Biscuits",
+  "price": 5.2,
+  "img": "img/c27_6925374541154.webp"
+ },
+ {
+  "id": "6925374541123",
+  "brand": "Küche",
+  "name": "PandaPopz Cookie Sticks with Cream",
+  "size": "40 g",
+  "cat": "Wafers & Biscuits",
+  "price": 5.2,
+  "img": "img/c27_6925374541123.webp"
+ },
+ {
+  "id": "6925374541147",
+  "brand": "Küche",
+  "name": "PandaPopz Biscuit Sticks with Caramel Dip",
+  "size": "40 g",
+  "cat": "Wafers & Biscuits",
+  "price": 5.2,
+  "img": "img/c27_6925374541147.webp"
+ },
+ {
+  "id": "6925374541130",
+  "brand": "Küche",
+  "name": "PandaPopz Choco Crunch Cone",
+  "size": "20 g",
+  "cat": "Wafers & Biscuits",
+  "price": 5.2,
+  "img": "img/c27_6925374541130.webp"
+ },
+ {
+  "id": "8908021078218",
+  "brand": "Kab's Jackpot",
+  "name": "Fiery & Crunchy Balls",
+  "size": "60 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_8908021078218.webp"
+ },
+ {
+  "id": "8908021078096",
+  "brand": "Kab's Jackpot",
+  "name": "Cheese Balls",
+  "size": "60 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_8908021078096.webp"
+ },
+ {
+  "id": "6287014281128",
+  "brand": "Flowchy",
+  "name": "Puffed Corn Korean Flavour",
+  "size": "70 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_6287014281128.webp"
+ },
+ {
+  "id": "6287014280459",
+  "brand": "Flowchy",
+  "name": "Puffed Corn Sweet & Sour",
+  "size": "70 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_6287014280459.webp"
+ },
+ {
+  "id": "6287014280251",
+  "brand": "Flowchy",
+  "name": "Puffed Corn Chili Pepper & Lemon",
+  "size": "70 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_6287014280251.webp"
+ },
+ {
+  "id": "6287014281302",
+  "brand": "Flowchy",
+  "name": "Puffed Corn Hot Sauce",
+  "size": "70 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_6287014281302.webp"
+ },
+ {
+  "id": "757528005047",
+  "brand": "Takis",
+  "name": "Fuego",
+  "size": "28 g",
+  "cat": "Chips & Snacks",
+  "price": 5.2,
+  "img": "img/c27_757528005047.webp"
+ },
+ {
+  "id": "757528005276",
+  "brand": "Takis",
+  "name": "Fuego",
+  "size": "56 g",
+  "cat": "Chips & Snacks",
+  "price": 7.8,
+  "img": "img/c27_757528005276.webp"
+ },
+ {
+  "id": "757528008796",
+  "brand": "Takis",
+  "name": "Fuego",
+  "size": "113 g",
+  "cat": "Chips & Snacks",
+  "price": 14.95,
+  "img": "img/c27_757528008796.webp"
+ },
+ {
+  "id": "757528047528",
+  "brand": "Takis",
+  "name": "Blue Heat",
+  "size": "113 g",
+  "cat": "Chips & Snacks",
+  "price": 21.45,
+  "img": "img/c27_757528047528.webp"
+ },
+ {
+  "id": "7500810001592",
+  "brand": "Takis",
+  "name": "Fuego Waves",
+  "size": "70 g",
+  "cat": "Chips & Snacks",
+  "price": 14.05,
+  "img": "img/c27_7500810001592.webp"
+ },
+ {
+  "id": "757528010607",
+  "brand": "Takis",
+  "name": "Stix Fuego (Churritos)",
+  "size": "113 g",
+  "cat": "Chips & Snacks",
+  "price": 13.65,
+  "img": "img/c27_757528010607.webp"
+ },
+ {
+  "id": "757528008802",
+  "brand": "Takis",
+  "name": "Nitro",
+  "size": "113 g",
+  "cat": "Chips & Snacks",
+  "price": 13.65,
+  "img": "img/c27_757528008802.webp"
+ },
+ {
+  "id": "757528046361",
+  "brand": "Takis",
+  "name": "Kettlez Fuego",
+  "size": "71 g",
+  "cat": "Chips & Snacks",
+  "price": 13.65,
+  "img": "img/c27_757528046361.webp"
+ },
+ {
+  "id": "633148100013",
+  "brand": "Tajín",
+  "name": "Clásico Seasoning",
+  "size": "142 g",
+  "cat": "Sauces & Seasoning",
+  "price": 16.9,
+  "img": "img/c27_633148100013.webp"
+ },
+ {
+  "id": "633148100556",
+  "brand": "Tajín",
+  "name": "Clásico Seasoning",
+  "size": "400 g",
+  "cat": "Sauces & Seasoning",
+  "price": 37.05,
+  "img": "img/c27_633148100556.webp"
+ },
+ {
+  "id": "633148104547",
+  "brand": "Tajín",
+  "name": "Habanero Seasoning",
+  "size": "45 g",
+  "cat": "Sauces & Seasoning",
+  "price": 18.2,
+  "img": "img/c27_633148104547.webp"
+ },
+ {
+  "id": "6297675944577",
+  "brand": "Kitchora",
+  "name": "Hot Sauce Promo Pack",
+  "size": "3 × 88 ml",
+  "cat": "Sauces & Seasoning",
+  "price": 5.46,
+  "img": "img/c27_6297675944577.webp"
+ },
+ {
+  "id": "6297675944584",
+  "brand": "Kitchora",
+  "name": "Original Tomato Ketchup Promo Pack",
+  "size": "2 × 340 g",
+  "cat": "Sauces & Seasoning",
+  "price": 9.1,
+  "img": "img/c27_6297675944584.webp"
+ },
+ {
+  "id": "6297675943457",
+  "brand": "Alien's Sour",
+  "name": "Limited Edition Promo Pack Blue, 5 pcs",
+  "size": "156 g",
+  "cat": "Candy",
+  "price": 16.9,
+  "img": "img/c27_6297675943457.webp"
+ },
+ {
+  "id": "6297675943433",
+  "brand": "Alien's Sour",
+  "name": "Limited Edition Promo Pack Red, 5 pcs",
+  "size": "156 g",
+  "cat": "Candy",
+  "price": 16.9,
+  "img": "img/c27_6297675943433.webp"
+ },
+ {
+  "id": "6297675943471",
+  "brand": "Alien's Sour",
+  "name": "Space Adventure Promo Pack Blue, 3 pcs",
+  "size": "151 g",
+  "cat": "Candy",
+  "price": 11.7,
+  "img": "img/c27_6297675943471.webp"
+ },
+ {
+  "id": "6297675943495",
+  "brand": "Alien's Sour",
+  "name": "Space Adventure Promo Pack Red, 3 pcs",
+  "size": "151 g",
+  "cat": "Candy",
+  "price": 11.7,
+  "img": "img/c27_6297675943495.webp"
  }
 ]
