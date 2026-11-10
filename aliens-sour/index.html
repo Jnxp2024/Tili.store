@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Alien's Sour · Seriously Sour Candy</title>
+<meta name="description" content="Alien's Sour gummies, jelly sticks, sour gels, lollipops, popping candy and straws in strawberry and blueberry. Order online with cash on delivery across the UAE.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:title" content="Alien's Sour · Seriously Sour Candy">
+<meta property="og:description" content="Gummies, jelly sticks, sour gels, lollipops and more. Delivered within one day across the UAE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2370C13A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='32' text-anchor='middle' fill='%23fff'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E1116;--ink2:#5B6170;--ink3:#8A90A0;--bg:#FFFFFF;--bg2:#F5F7F4;--line:#E8EBE6;--green:#70C13A;--green2:#4E9A22;--blue:#1E63E9;--red:#E8352B;--r:22px;--ease:cubic-bezier(.22,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green2)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.04}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15.5px;transition:transform .4s var(--ease),background .3s var(--ease),box-shadow .4s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.green{background:var(--green);color:#fff;box-shadow:0 12px 30px rgba(112,193,58,.35)}
+.btn.ghost{border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
+.hdr.solid{border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.02em}
+.logo i{width:34px;height:34px;border-radius:11px;background:var(--green);display:grid;place-items:center;color:#fff;font-style:normal;font-size:17px}
+.nav{display:flex;gap:30px;font-size:15px;color:var(--ink2)}
+.nav a:hover{color:var(--ink)}
+.hdr .btn{height:42px;padding:0 20px;font-size:14px}
+.menu{display:none;width:44px;height:44px;place-items:center}
+@media (max-width:900px){.nav{display:none}.hdr .btn{display:none}.menu{display:grid}
+ .nav.open{display:grid;position:absolute;top:74px;left:0;right:0;background:#fff;padding:6px 20px 20px;border-bottom:1px solid var(--line);gap:0}
+ .nav.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink)}}
+/* hero */
+.hero{padding:70px 0 40px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(50px,7.4vw,104px);margin:20px 0 22px}
+.hero h1 .g{color:var(--green)}
+.hero p{font-size:19px;color:var(--ink2);max-width:470px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.stage{position:relative;isolation:isolate;aspect-ratio:1/1;border-radius:36px;background:radial-gradient(circle at 50% 55%,#EEF8E6 0%,#F7FAF5 55%,#fff 75%)}
+.stage .p{position:absolute;mix-blend-mode:multiply}
+.stage .p img{width:100%;height:auto;animation:float 7s ease-in-out infinite}
+.stage .p1{width:50%;left:25%;top:14%;z-index:3;animation-delay:-1s}
+.stage .p2{width:32%;left:0%;top:30%;z-index:2;rotate:-8deg;animation-delay:-3s}
+.stage .p3{width:30%;right:0%;top:20%;z-index:2;animation-delay:-5s}
+.stage .p4{width:32%;left:14%;bottom:6%;z-index:4;animation-delay:-2s}
+.stage .p5{width:30%;right:10%;bottom:8%;z-index:4;animation-delay:-4s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.ring{position:absolute;inset:10%;border:1.5px dashed rgba(112,193,58,.35);border-radius:50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.hero{padding:40px 0 20px}.hero .wrap{grid-template-columns:1fr}.stage{max-width:520px;width:100%;margin:10px auto 0}}
+.hero .wrap+.wrap{display:block}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);margin-top:60px}
+.strip div{padding:22px 24px;border-right:1px solid var(--line)}
+.strip div:last-child{border-right:0}
+.strip b{display:block;font-size:17px}
+.strip span{font-size:14px;color:var(--ink2)}
+@media (max-width:800px){.strip{grid-template-columns:1fr 1fr}.strip div:nth-child(2){border-right:0}.strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+/* sections */
+section{padding:100px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sh h2{font-size:clamp(34px,4.6vw,58px);margin-top:14px;max-width:660px}
+.sh p{color:var(--ink2);max-width:420px;font-size:16.5px}
+@media (max-width:700px){section{padding:70px 0}}
+/* flavours */
+.flav{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fl{border-radius:28px;padding:44px;color:#fff;position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform .6s var(--ease)}
+.fl:hover{transform:translateY(-4px)}
+.fl.red{background:linear-gradient(150deg,#F2493E,#C61F17)}
+.fl.blue{background:linear-gradient(150deg,#2F78FF,#1446B8)}
+.fl h3{font-size:clamp(34px,4vw,50px)}
+.fl p{opacity:.85;max-width:260px;margin-top:10px}
+.fl .imgs{display:flex;gap:10px;align-items:flex-end;justify-content:flex-end;margin-top:20px}
+.fl .imgs img{width:31%;background:#fff;border-radius:18px;padding:8px;box-shadow:0 16px 30px rgba(0,0,0,.2);transition:transform .6s var(--ease)}
+.fl:hover .imgs img:nth-child(2){transform:translateY(-8px)}
+.fl .n{position:absolute;top:44px;right:44px;font-size:14px;font-weight:600;background:rgba(255,255,255,.18);padding:7px 14px;border-radius:999px}
+@media (max-width:800px){.flav{grid-template-columns:1fr}.fl{padding:30px;min-height:0}.fl .n{top:30px;right:30px}}
+/* range */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font-size:14.5px;font-weight:500;transition:all .3s var(--ease)}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.red[aria-pressed=true]{background:var(--red);border-color:var(--red)}
+.chip.blue[aria-pressed=true]{background:var(--blue);border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.grid{grid-template-columns:1fr 1fr;gap:12px}}
+.card{position:relative;background:var(--bg2);border-radius:var(--r);padding:14px 14px 18px;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s var(--ease);opacity:0;transform:translateY(14px);animation:in .7s var(--ease) forwards;animation-delay:calc(var(--i,0)*40ms)}
+@keyframes in{to{opacity:1;transform:none}}
+.card:hover{background:#fff;box-shadow:0 22px 50px rgba(14,17,22,.1)}
+.card .im{aspect-ratio:1;border-radius:16px;background:#fff;display:grid;place-items:center;overflow:hidden;margin-bottom:14px}
+.card .im img{width:86%;height:86%;object-fit:contain;transition:transform .8s var(--ease)}
+.card:hover .im img{transform:scale(1.06) rotate(-2deg)}
+.card h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin-bottom:4px}
+.card .sz{font-size:13px;color:var(--ink2)}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;gap:8px}
+.card .pr{font-weight:700;font-size:17px}.card .pr small{font-size:11px;font-weight:500;color:var(--ink2);margin-right:3px}
+.card .go{height:38px;padding:0 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap;transition:background .3s var(--ease)}
+.card:hover .go{background:var(--green)}
+.dot{position:absolute;top:24px;left:24px;width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 3px #fff}
+.dot.s{background:var(--red)}.dot.b{background:var(--blue)}
+@media (max-width:420px){.card .row{flex-direction:column;align-items:stretch}.card .go{justify-content:center}}
+/* packs */
+.packs{background:var(--bg2)}
+.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pk a{background:#fff;border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.pk a:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(14,17,22,.08)}
+.pk img{aspect-ratio:4/3;object-fit:contain;width:100%}
+.pk b{font-size:16px;line-height:1.3}
+.pk span{font-size:14px;color:var(--ink2)}
+@media (max-width:900px){.pk{grid-template-columns:1fr 1fr}}
+/* trade */
+.trade{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:stretch}
+.trade .big{background:var(--ink);color:#fff;border-radius:28px;padding:50px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.trade .big h2{font-size:clamp(32px,3.6vw,48px)}
+.trade .big p{color:rgba(255,255,255,.7);max-width:440px}
+.trade .list{display:grid;gap:14px}
+.trade .list div{border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.trade .list b{display:block;font-size:18px;margin-bottom:4px}
+.trade .list p{color:var(--ink2);font-size:15px}
+@media (max-width:900px){.trade{grid-template-columns:1fr}.trade .big{padding:34px}}
+footer{border-top:1px solid var(--line);padding:56px 0 36px;font-size:14.5px;color:var(--ink2)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{color:var(--ink);font-size:14px;font-weight:600;margin-bottom:14px}
+footer a{display:block;padding:4px 0}footer a:hover{color:var(--ink)}
+footer .base{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px;margin-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+@media (max-width:800px){footer .wrap{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a href="#top" class="logo"><i>A</i>Alien's Sour</a>
+    <nav class="nav" id="nav">
+      <a href="#flavours">Flavours</a>
+      <a href="#range">The range</a>
+      <a href="#packs">Gift packs</a>
+      <a href="#trade">For stores</a>
+    </nav>
+    <a class="btn dark" href="https://store.tili.ae/#b-Alien's%20Sour">Order online</a>
+    <button class="menu" id="menu" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Sour candy from another planet</div>
+      <h1>Seriously<br><span class="g">sour.</span></h1>
+      <p>Gummies, jelly sticks, sour gels, lollipops and popping candy in two big flavours: strawberry and blueberry.</p>
+      <div class="cta">
+        <a class="btn green" href="#range">Explore the range</a>
+        <a class="btn ghost" href="https://store.tili.ae/#b-Alien's%20Sour">Order on Tili Store</a>
+      </div>
+    </div>
+    <div class="stage" id="stage" aria-hidden="true"><div class="ring"></div></div>
+  </div>
+  <div class="wrap">
+    <div class="strip reveal">
+      <div><b id="cnt">20+</b><span>Products in the range</span></div>
+      <div><b>2 flavours</b><span>Strawberry and blueberry</span></div>
+      <div><b>Within one day</b><span>Delivered across the UAE</span></div>
+      <div><b>Cash on delivery</b><span>Pay when it arrives</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="flavours">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">Pick a side</div><h2>Team strawberry or team blueberry?</h2></div>
+      <p>Most of the range comes in both. Tap a flavour to see everything in it.</p>
+    </div>
+    <div class="flav">
+      <a class="fl red reveal" href="#range" data-fl="s"><span class="n" id="nS"></span><div><h3>Strawberry</h3><p>Sweet first, then a sour kick you will feel in your cheeks.</p></div><div class="imgs" id="imS"></div></a>
+      <a class="fl blue reveal" href="#range" data-fl="b"><span class="n" id="nB"></span><div><h3>Blueberry</h3><p>Deep berry flavour with the same seriously sour finish.</p></div><div class="imgs" id="imB"></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="range" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">The range</div><h2>Every way to get sour.</h2></div>
+      <p>Tap a product to order it on the Tili Store. Delivered within one day, cash on delivery.</p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter products">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip red" data-f="s" aria-pressed="false">Strawberry</button>
+      <button class="chip blue" data-f="b" aria-pressed="false">Blueberry</button>
+      <button class="chip" data-f="gummy" aria-pressed="false">Gummies</button>
+      <button class="chip" data-f="jelly" aria-pressed="false">Jelly & gels</button>
+      <button class="chip" data-f="lolly" aria-pressed="false">Lollipops & popping</button>
+      <button class="chip" data-f="fun" aria-pressed="false">Straws & fun</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="packs" id="packs">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">Gift packs</div><h2>Limited edition boxes.</h2></div>
+      <p>Bundles of our favourites in one box. Great for parties, school treats and gifts.</p>
+    </div>
+    <div class="pk" id="pk"></div>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="wrap trade">
+    <div class="big reveal">
+      <div><div class="eyebrow" style="color:#A6E07D">For stores & wholesale</div><h2 style="margin-top:14px">Put Alien's Sour on your shelf.</h2></div>
+      <p>We supply supermarkets, hypermarkets and gift shops across all seven emirates, with promo packs and display support.</p>
+      <div><a class="btn green" href="mailto:sales@tili.ae?subject=Alien's%20Sour%20for%20my%20store">Email sales@tili.ae</a></div>
+    </div>
+    <div class="list">
+      <div class="reveal"><b>Ready stock in the UAE</b><p>Delivered from our warehouse, no import wait.</p></div>
+      <div class="reveal"><b>Bright, eye-catching packs</b><p>Made to stand out at the checkout and in the candy aisle.</p></div>
+      <div class="reveal"><b>Trade catalogue on request</b><p>Ask for pack sizes, carton counts and prices.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><a href="#top" class="logo" style="margin-bottom:14px"><i>A</i>Alien's Sour</a><p style="max-width:320px">Seriously sour candy. A Tili Star Trading brand.</p></div>
+    <div><h4>Shop</h4><a href="#range">The range</a><a href="https://store.tili.ae/">Tili Store</a><a href="https://store.tili.ae/#delivery">Delivery</a></div>
+    <div><h4>Contact</h4><a href="mailto:sales@tili.ae">sales@tili.ae</a><a href="https://tili.ae">tili.ae</a></div>
+    <div class="base"><span>© <span id="yr"></span> Tili Star Trading L.L.C · United Arab Emirates</span><span>Cash on delivery · Delivered within one day</span></div>
+  </div>
+</footer>
+
+<script>
+const STORE="https://store.tili.ae/";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$("#yr").textContent=new Date().getFullYear();
+const hdr=$("#hdr");const onS=()=>hdr.classList.toggle("solid",scrollY>10);addEventListener("scroll",onS,{passive:true});onS();
+$("#menu").onclick=()=>{const o=$("#nav").classList.toggle("open");$("#menu").setAttribute("aria-expanded",o)};
+$$("#nav a").forEach(a=>a.onclick=()=>$("#nav").classList.remove("open"));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.12});
+$$(".reveal").forEach(el=>io.observe(el));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const flav=p=>/strawberry|red/i.test(p.name)?"s":/blueberry|blue/i.test(p.name)?"b":"";
+const kind=p=>/gumm|rocks|pizza|cola/i.test(p.name)?"gummy":/jelly|gel/i.test(p.name)?"jelly":/lolli|popping|teeth/i.test(p.name)?"lolly":"fun";
+let ALL=[],F="all";
+const card=(p,i)=>`<a class="card" style="--i:${i%12}" href="${STORE}#p-${p.id}" target="_blank" rel="noopener">
+  ${flav(p)?`<span class="dot ${flav(p)}" title="${flav(p)==="s"?"Strawberry":"Blueberry"}"></span>`:""}
+  <div class="im"><img src="/${p.img}" alt="${esc(p.name)}" loading="lazy"></div>
+  <h3>${esc(p.name)}</h3><div class="sz">${esc(p.size||"")}</div>
+  <div class="row"><div class="pr"><small>AED</small>${p.price.toFixed(2)}</div><span class="go">Order</span></div></a>`;
+function draw(){const l=ALL.filter(p=>!/promo/i.test(p.name)).filter(p=>F==="all"||(F==="s"||F==="b"?flav(p)===F:kind(p)===F));$("#grid").innerHTML=l.map(card).join("")}
+function setF(f){F=f;$$("#chips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));draw()}
+$$("#chips .chip").forEach(b=>b.onclick=()=>setF(b.dataset.f));
+$$(".fl[data-fl]").forEach(c=>c.addEventListener("click",()=>setF(c.dataset.fl)));
+(async()=>{
+  try{
+    const ps=await (await fetch("/products.json")).json();
+    let ovr={};try{const r=await fetch("/api/catalog");if(r.ok)ovr=(await r.json()).p||{}}catch(e){}
+    ALL=ps.filter(p=>p.brand==="Alien's Sour"&&p.img).map(p=>({...p,price:(ovr[p.id]&&ovr[p.id].price)||p.price,off:ovr[p.id]&&ovr[p.id].off})).filter(p=>!p.off);
+    const ord={gummy:0,jelly:1,lolly:2,fun:3};ALL.sort((a,b)=>ord[kind(a)]-ord[kind(b)]||flav(a).localeCompare(flav(b)));
+    $("#cnt").textContent=ALL.length;
+    const by=r=>ALL.find(p=>r.test(p.name));
+    const hero=[/Space Gummy Strawberry/,/Jelly Sticks.*Blueberry/,/Gummy Rocks Strawberry/,/Gumball/,/Teeth Candy Blueberry/].map(by);
+    $("#stage").insertAdjacentHTML("beforeend",hero.map((p,i)=>p?`<div class="p p${i+1}"><img src="/${p.img}" alt=""></div>`:"").join(""));
+    const S=ALL.filter(p=>flav(p)==="s"&&!/promo/i.test(p.name)),B=ALL.filter(p=>flav(p)==="b"&&!/promo/i.test(p.name));
+    $("#nS").textContent=S.length+" products";$("#nB").textContent=B.length+" products";
+    const pick=(l,rs)=>rs.map(r=>l.find(p=>r.test(p.name))).filter(Boolean);
+    $("#imS").innerHTML=pick(S,[/Jelly/,/Space Gummy/,/Rocks/]).map(p=>`<img src="/${p.img}" alt="">`).join("");
+    $("#imB").innerHTML=pick(B,[/Jelly/,/Space Gummy/,/Rocks/]).map(p=>`<img src="/${p.img}" alt="">`).join("");
+    $("#pk").innerHTML=ALL.filter(p=>/promo/i.test(p.name)).map(p=>`<a href="${STORE}#p-${p.id}" target="_blank" rel="noopener"><img src="/${p.img}" alt="${esc(p.name)}" loading="lazy"><b>${esc(p.name)}</b><span>${esc(p.size)} · AED ${p.price.toFixed(2)}</span></a>`).join("");
+    draw();
+  }catch(e){$("#grid").innerHTML='<p>Products could not load. <a href="'+STORE+'" style="text-decoration:underline">Shop on Tili Store</a>.</p>'}
+})();
+</script>
+</body>
+</html>

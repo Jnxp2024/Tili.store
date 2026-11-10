@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Küche · Dubai Chocolate & Premium Snacks</title>
+<meta name="description" content="Küche Dubai chocolate with pistachio kunafa, chocolate dates, Rêve wafer rolls, PandaPopz and roasted nuts. Order online with cash on delivery across the UAE.">
+<meta name="theme-color" content="#0B2A22">
+<meta property="og:title" content="Küche · Dubai Chocolate">
+<meta property="og:description" content="Pistachio kunafa chocolate, chocolate dates and premium snacks. Delivered within one day across the UAE.">
+<meta property="og:image" content="/brand-assets/kuche/hero.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B2A22'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23D4B26A'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0B2A22;--green2:#123B30;--green3:#1C4D40;--gold:#D4B26A;--gold2:#B8934A;--cream:#F7F2E8;--cream2:#EFE7D6;--ink:#14110D;--ink2:#5E574C;--line:rgba(20,17,13,.1);--r:20px;--ease:cubic-bezier(.22,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.08}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15.5px;transition:transform .4s var(--ease),background .3s var(--ease),color .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--gold);color:var(--green)}
+.btn.line{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn.line:hover{border-color:var(--gold);color:var(--gold)}
+.btn.dark{background:var(--green);color:#fff}
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.hdr.solid{background:rgba(11,42,34,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-size:24px;font-weight:700;letter-spacing:.32em;color:#fff;padding-left:.32em}
+.logo span{color:var(--gold)}
+.nav{display:flex;gap:30px;font-size:14.5px;color:rgba(255,255,255,.78)}
+.nav a:hover{color:var(--gold)}
+.hdr .btn{height:42px;padding:0 20px;font-size:14px}
+.menu{display:none;width:44px;height:44px;place-items:center;color:#fff}
+@media (max-width:900px){.nav{display:none}.hdr .btn{display:none}.menu{display:grid}
+ .nav.open{display:grid;position:absolute;top:76px;left:0;right:0;background:var(--green);padding:10px 20px 24px;gap:0}
+ .nav.open a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:17px;color:#fff}}
+/* hero */
+.hero{background:radial-gradient(1200px 600px at 80% 20%,#1D5546 0%,transparent 60%),linear-gradient(160deg,#0B2A22 0%,#082019 100%);color:#fff;padding:140px 0 90px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M0 420 C120 380 160 300 260 320 S420 240 600 260' stroke='%23D4B26A' stroke-opacity='.10' fill='none' stroke-width='1.2'/%3E%3Cpath d='M0 120 C140 160 200 80 320 110 S480 60 600 90' stroke='%23D4B26A' stroke-opacity='.08' fill='none' stroke-width='1'/%3E%3C/svg%3E") center/cover;pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(42px,6vw,76px);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:18px;color:rgba(255,255,255,.75);max-width:480px;font-weight:300}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero .pic{position:relative;aspect-ratio:1;border-radius:28px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.hero .pic img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:zoom 14s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero .badge{position:absolute;left:20px;bottom:20px;background:var(--cream);color:var(--ink);border-radius:18px;padding:16px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.hero .badge b{font-size:26px;color:var(--green)}
+.hero .badge span{font-size:13px;color:var(--ink2);line-height:1.3}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;border-top:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
+.facts div{padding:26px 22px 0 0}
+.facts b{display:block;font-size:17px;font-weight:600;color:#fff}
+.facts span{font-size:14px;color:rgba(255,255,255,.6)}
+.hero .wrap.facts{grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+@media (max-width:900px){.hero{padding:110px 0 60px}.hero .wrap{grid-template-columns:1fr;gap:40px}.hero .badge{left:16px;bottom:16px}.hero .wrap.facts{grid-template-columns:1fr 1fr;row-gap:22px;margin-top:44px}}
+/* sections */
+section{padding:110px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.sh h2{font-size:clamp(32px,4vw,50px);margin-top:12px;max-width:640px}
+.sh p{color:var(--ink2);max-width:420px}
+@media (max-width:700px){section{padding:72px 0}}
+/* collections */
+.cols{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.col{position:relative;border-radius:var(--r);overflow:hidden;background:var(--green);color:#fff;min-height:340px;display:flex;align-items:flex-end;cursor:pointer;isolation:isolate}
+.col img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.col::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,20,16,.88));z-index:-1}
+.col:hover img{transform:scale(1.06)}
+.col div{padding:26px}
+.col h3{font-size:26px}
+.col span{font-size:14px;color:rgba(255,255,255,.75)}
+.col.a{grid-column:span 3;min-height:440px}.col.b{grid-column:span 3;min-height:440px}.col.c,.col.d,.col.e{grid-column:span 2}
+.col.lt{background:#fff;color:var(--ink)}.col.lt::after{display:none}.col.lt img{object-fit:contain;padding:26px 26px 96px}.col.lt span{color:var(--ink2)}
+.col.dt img{object-position:center 30%}
+@media (max-width:900px){.cols{grid-template-columns:1fr 1fr}.col.a,.col.b{grid-column:span 2;min-height:360px}.col.c,.col.d,.col.e{grid-column:span 1;min-height:260px}.col.e{grid-column:span 2}}
+@media (max-width:520px){.col.c,.col.d{grid-column:span 2}}
+/* products */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font-size:14.5px;font-weight:500;background:#fff;transition:all .3s var(--ease)}
+.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.grid{grid-template-columns:1fr 1fr;gap:12px}}
+.card{background:#fff;border-radius:var(--r);padding:14px 14px 18px;display:flex;flex-direction:column;border:1px solid transparent;transition:transform .5s var(--ease),box-shadow .5s var(--ease);opacity:0;transform:translateY(14px);animation:in .7s var(--ease) forwards;animation-delay:calc(var(--i,0)*40ms)}
+@keyframes in{to{opacity:1;transform:none}}
+.card:hover{box-shadow:0 22px 50px rgba(20,17,13,.1)}
+.card .im{aspect-ratio:1;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden;margin-bottom:14px}
+.card .im img{width:88%;height:88%;object-fit:contain;transition:transform .8s var(--ease)}
+.card:hover .im img{transform:scale(1.05)}
+.card h3{font-size:15.5px;font-weight:500;letter-spacing:0;line-height:1.3;margin-bottom:4px}
+.card .sz{font-size:13px;color:var(--ink2)}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;gap:8px}
+.card .pr{font-weight:600;font-size:17px}.card .pr small{font-size:11px;font-weight:500;color:var(--ink2);margin-right:3px}
+.card .go{height:38px;padding:0 16px;border-radius:999px;background:var(--green);color:#fff;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap}
+.card .go:hover{background:var(--gold);color:var(--green)}
+.tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:var(--green);padding:5px 9px;border-radius:999px}
+.card{position:relative}
+@media (max-width:420px){.card .row{flex-direction:column;align-items:stretch}.card .go{justify-content:center}}
+.more{text-align:center;margin-top:40px}
+/* story */
+.story{background:var(--green);color:#fff}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story .pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.story .pics img{border-radius:var(--r);aspect-ratio:3/4;object-fit:cover;width:100%;height:100%}
+.story .pics img:nth-child(2){margin-top:60px}
+.story h2{font-size:clamp(32px,4vw,48px);margin:14px 0 22px}
+.story p{color:rgba(255,255,255,.72);font-weight:300;font-size:17px;margin-bottom:16px}
+.ticks{display:grid;gap:14px;margin-top:28px}
+.ticks div{display:flex;gap:14px;align-items:flex-start;font-size:15.5px}
+.ticks i{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(212,178,106,.16);color:var(--gold);display:grid;place-items:center;font-style:normal;font-size:13px}
+@media (max-width:900px){.story .wrap{grid-template-columns:1fr;gap:44px}}
+/* banner */
+.band{padding:0}
+.band .box{border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:var(--cream2)}
+.band .box img{width:100%;height:100%;object-fit:cover;min-height:360px}
+.band .txt{padding:60px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.band h2{font-size:clamp(28px,3.4vw,42px)}
+.band p{color:var(--ink2)}
+@media (max-width:800px){.band .box{grid-template-columns:1fr}.band .txt{padding:36px 26px}}
+/* trade */
+.trade{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.trade div{background:#fff;border-radius:var(--r);padding:30px}
+.trade b{display:block;font-size:19px;margin:16px 0 6px;font-weight:600}
+.trade p{color:var(--ink2);font-size:15px}
+.trade svg{color:var(--gold2)}
+@media (max-width:800px){.trade{grid-template-columns:1fr}}
+/* footer */
+footer{background:#071A15;color:rgba(255,255,255,.65);padding:70px 0 40px;font-size:14.5px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+footer a{display:block;padding:4px 0}footer a:hover{color:var(--gold)}
+footer .base{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:26px;margin-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+@media (max-width:800px){footer .wrap{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Küche home">K<span>Ü</span>CHE</a>
+    <nav class="nav" id="nav">
+      <a href="#collections">Collections</a>
+      <a href="#shop">Shop</a>
+      <a href="#story">Our story</a>
+      <a href="#trade">For stores</a>
+    </nav>
+    <a class="btn gold" href="https://store.tili.ae/#b-K%C3%BCche">Order online</a>
+    <button class="menu" id="menu" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Küche · Premium chocolate</div>
+      <h1>Dubai chocolate,<br><em>made the Küche way.</em></h1>
+      <p>Belgian chocolate filled with pistachio and crispy kunafa. Plus chocolate dates, Rêve wafer rolls, PandaPopz and roasted nuts.</p>
+      <div class="cta">
+        <a class="btn gold" href="#shop">Shop the range</a>
+        <a class="btn line" href="#collections">See collections</a>
+      </div>
+    </div>
+    <div class="pic">
+      <img src="/brand-assets/kuche/hero.webp" alt="Küche pistachio kunafa chocolate bars with the Dubai skyline behind" fetchpriority="high">
+      <div class="badge"><b id="countAll">60+</b><span>Küche products<br>delivered across the UAE</span></div>
+    </div>
+  </div>
+  <div class="wrap facts">
+    <div><b>Pistachio kunafa</b><span>The real Dubai chocolate filling</span></div>
+    <div><b>Milk, dark & camel milk</b><span>Plus no added sugar bars</span></div>
+    <div><b>Delivered in a day</b><span>All 7 emirates</span></div>
+    <div><b>Cash on delivery</b><span>Pay when it arrives</span></div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">Collections</div><h2>Something for every kind of sweet tooth.</h2></div>
+      <p>From slim 50 g bars to 200 g sharing slabs, and snacks for the whole family.</p>
+    </div>
+    <div class="cols">
+      <a class="col a reveal" data-f="choc" href="#shop"><img src="/brand-assets/kuche/bars.webp" alt="" loading="lazy"><div><h3>Dubai Chocolate</h3><span>Pistachio kunafa, saffron, angel hair and camel milk bars</span></div></a>
+      <a class="col b dt reveal" data-f="dates" href="#shop"><img src="/brand-assets/kuche/dates.webp" alt="" loading="lazy"><div><h3>Chocolate Dates</h3><span>Dates filled with pistachio and kunafa, dipped in chocolate</span></div></a>
+      <a class="col c lt reveal" data-f="wafer" href="#shop"><img id="wfImg" alt="" loading="lazy"><div><h3>Rêve Wafer Rolls</h3><span>Pistachio and almond</span></div></a>
+      <a class="col d lt reveal" data-f="kids" href="#shop"><img id="ppImg" alt="" loading="lazy"><div><h3>PandaPopz</h3><span>Filled biscuits for kids</span></div></a>
+      <a class="col e reveal" data-f="snacks" href="#shop"><img src="/brand-assets/kuche/snacks.webp" alt="" loading="lazy"><div><h3>Nuts & Snacks</h3><span>Roasted seeds, mixes and crackers</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">Shop Küche</div><h2>The full range.</h2></div>
+      <p>Tap any product to order it on the Tili Store. Delivered within one day, cash on delivery.</p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter products">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="choc" aria-pressed="false">Dubai Chocolate</button>
+      <button class="chip" data-f="dates" aria-pressed="false">Chocolate Dates</button>
+      <button class="chip" data-f="wafer" aria-pressed="false">Wafer Rolls</button>
+      <button class="chip" data-f="kids" aria-pressed="false">PandaPopz</button>
+      <button class="chip" data-f="snacks" aria-pressed="false">Nuts & Snacks</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more"><a class="btn dark" href="https://store.tili.ae/#b-K%C3%BCche">See everything on Tili Store</a></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="box reveal">
+      <img src="/brand-assets/kuche/tray.webp" alt="Küche Dubai chocolate on a serving tray with Arabic coffee" loading="lazy">
+      <div class="txt">
+        <div class="eyebrow">Made for sharing</div>
+        <h2>Serve it with coffee. Gift it on Eid. Keep one for yourself.</h2>
+        <p>Every Küche bar is sealed and shipped cool from our UAE warehouse, so it reaches you the way it left.</p>
+        <div><a class="btn dark" href="#shop">Find your favourite</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="pics reveal">
+      <img src="/brand-assets/kuche/box.webp" alt="Küche Dubai chocolate display box at home" loading="lazy">
+      <img src="/brand-assets/kuche/dusk.webp" alt="Küche bars with the Dubai skyline at sunset" loading="lazy">
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Our story</div>
+      <h2>Inspired by Dubai, shared across the Emirates.</h2>
+      <p>Küche is a brand of Tili Star Trading, a UAE food company that has delivered to stores in all seven emirates since 2019.</p>
+      <p>We started with the flavour everyone was talking about, pistachio and kunafa wrapped in rich chocolate, and built a whole family of treats around it.</p>
+      <div class="ticks">
+        <div><i>✓</i>Premium chocolate with a generous pistachio kunafa filling</div>
+        <div><i>✓</i>Milk, dark, camel milk and no added sugar options</div>
+        <div><i>✓</i>Stocked by supermarkets and shops across the UAE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><div class="eyebrow">For stores & wholesale</div><h2>Stock Küche in your store.</h2></div>
+      <p>We supply supermarkets, hypermarkets and gift shops directly, with our own sales team.</p>
+    </div>
+    <div class="trade">
+      <div class="reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><b>Delivered to your shelf</b><p>We deliver to stores in all seven emirates, with regular visits from our sales team.</p></div>
+      <div class="reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg><b>Display stands</b><p>Branded stands and promo packs to help Küche sell from day one.</p></div>
+      <div class="reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H8l-4 4z"/></svg><b>Talk to our team</b><p>Email <a href="mailto:sales@tili.ae" style="text-decoration:underline">sales@tili.ae</a> for the trade catalogue and prices.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo" style="margin-bottom:16px">K<span>Ü</span>CHE</div>
+      <p style="max-width:340px">Dubai chocolate and premium snacks. A Tili Star Trading brand.</p>
+    </div>
+    <div><h4>Shop</h4><a href="#shop">All products</a><a href="https://store.tili.ae/">Tili Store</a><a href="https://store.tili.ae/#delivery">Delivery</a></div>
+    <div><h4>Contact</h4><a href="mailto:sales@tili.ae">sales@tili.ae</a><a href="https://tili.ae">tili.ae</a></div>
+    <div class="base"><span>© <span id="yr"></span> Tili Star Trading L.L.C · United Arab Emirates</span><span>Cash on delivery · Delivered within one day</span></div>
+  </div>
+</footer>
+
+<script>
+const STORE="https://store.tili.ae/";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$("#yr").textContent=new Date().getFullYear();
+const hdr=$("#hdr");const onS=()=>hdr.classList.toggle("solid",scrollY>30);addEventListener("scroll",onS,{passive:true});onS();
+$("#menu").onclick=()=>{const o=$("#nav").classList.toggle("open");$("#menu").setAttribute("aria-expanded",o)};
+$$("#nav a").forEach(a=>a.onclick=()=>$("#nav").classList.remove("open"));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.12});
+$$(".reveal").forEach(el=>io.observe(el));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const kind=p=>/dates/i.test(p.name)&&!/dates choco/i.test(p.name)?"dates":/wafer|rêve/i.test(p.name)?"wafer":/pandapopz/i.test(p.name)?"kids":/Nuts|Chips/.test(p.cat)?"snacks":"choc";
+let ALL=[],F="all";
+function draw(){
+  const l=ALL.filter(p=>F==="all"||kind(p)===F);
+  $("#grid").innerHTML=l.map((p,i)=>`<a class="card" style="--i:${i%12}" href="${STORE}#p-${p.id}" target="_blank" rel="noopener">
+    ${/no added sugar/i.test(p.name)?'<span class="tag">No added sugar</span>':/camel/i.test(p.name)?'<span class="tag">Camel milk</span>':""}
+    <div class="im"><img src="/${p.img}" alt="${esc(p.name)}" loading="lazy"></div>
+    <h3>${esc(p.name)}</h3><div class="sz">${esc(p.size||"")}</div>
+    <div class="row"><div class="pr"><small>AED</small>${p.price.toFixed(2)}</div><span class="go">Order</span></div></a>`).join("");
+}
+function setF(f){F=f;$$("#chips .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));draw()}
+$$("#chips .chip").forEach(b=>b.onclick=()=>setF(b.dataset.f));
+$$(".col[data-f]").forEach(c=>c.addEventListener("click",()=>setF(c.dataset.f)));
+(async()=>{
+  try{
+    const ps=await (await fetch("/products.json")).json();
+    let ovr={};try{const r=await fetch("/api/catalog");if(r.ok)ovr=(await r.json()).p||{}}catch(e){}
+    ALL=ps.filter(p=>p.brand==="Küche"&&p.img).map(p=>({...p,price:(ovr[p.id]&&ovr[p.id].price)||p.price,off:ovr[p.id]&&ovr[p.id].off})).filter(p=>!p.off);
+    const order={choc:0,dates:1,wafer:2,kids:3,snacks:4};ALL.sort((a,b)=>order[kind(a)]-order[kind(b)]);
+    $("#countAll").textContent=ALL.length;
+    const wf=ALL.find(p=>kind(p)==="wafer"),pp=ALL.find(p=>/4-pack/.test(p.name))||ALL.find(p=>kind(p)==="kids");
+    if(wf)$("#wfImg").src="/"+wf.img;if(pp)$("#ppImg").src="/"+pp.img;
+    draw();
+  }catch(e){$("#grid").innerHTML='<p>Products could not load. <a href="'+STORE+'" style="text-decoration:underline">Shop on Tili Store</a>.</p>'}
+})();
+</script>
+</body>
+</html>

@@ -167,6 +167,13 @@ const SCHEMA = ["CREATE TABLE IF NOT EXISTS customers (id INTEGER PRIMARY KEY AU
 let READY = null;
 const ensure = env => READY || (READY = env.DB.batch(SCHEMA.map(q => env.DB.prepare(q))).catch(e => { READY = null; throw e; }));
 
+const BRAND_SITES = {
+  "kuche.ae": "/kuche",
+  "aliensour.ae": "/aliens-sour",
+  "alienssour.ae": "/aliens-sour",
+  "aliens-sour.ae": "/aliens-sour",
+};
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url), path = url.pathname, m = request.method;
@@ -198,6 +205,14 @@ export default {
       } catch (e) {
         return bad("Something went wrong. Try again.", 500);
       }
+    }
+    // Brand sites: kuche.ae and the Alien's Sour domain are served from folders in this same project.
+    const host = url.hostname.toLowerCase().replace(/^www\./, "");
+    const site = BRAND_SITES[host];
+    if (site && !/^\/(img|brand-assets)\//.test(path) && path !== "/products.json") {
+      const u = new URL(request.url);
+      u.pathname = site + (path === "/" ? "/" : path);
+      return env.ASSETS.fetch(new Request(u, request));
     }
     return env.ASSETS.fetch(request);
   }
